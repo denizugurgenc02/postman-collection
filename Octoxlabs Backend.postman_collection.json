@@ -1,0 +1,4044 @@
+{
+	"info": {
+		"_postman_id": "1796ba64-71a4-4e2c-8aec-cc0c96b45a94",
+		"name": "Octoxlabs Backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "45236524",
+		"_collection_link": "https://deniz-5620599.postman.co/workspace/linear~02b69387-840e-49b9-a759-57fd6a44dc9d/collection/45236524-1796ba64-71a4-4e2c-8aec-cc0c96b45a94?action=share&source=collection_link&creator=45236524"
+	},
+	"item": [
+		{
+			"name": "Companies",
+			"item": [
+				{
+					"name": "Fetch Companies",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{OCTOXLABS_URL}}/companies/companies",
+							"host": [
+								"{{OCTOXLABS_URL}}"
+							],
+							"path": [
+								"companies",
+								"companies"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Fetch Companies",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{OCTOXLABS_URL}}/companies/companies",
+									"host": [
+										"{{OCTOXLABS_URL}}"
+									],
+									"path": [
+										"companies",
+										"companies"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"count\": 3,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": 9,\n            \"name\": \"Company Two\",\n            \"is_constant\": false,\n            \"domain\": null,\n            \"is_active\": true\n        },\n        {\n            \"id\": 7,\n            \"name\": \"Company One\",\n            \"is_constant\": false,\n            \"domain\": \"one.octoxlabs.com\",\n            \"is_active\": true\n        },\n        {\n            \"id\": 1,\n            \"name\": \"Octoxlabs\",\n            \"is_constant\": true,\n            \"domain\": \"octoxlabs.io\",\n            \"is_active\": true\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Company",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Company Name\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{OCTOXLABS_URL}}/companies/companies",
+							"host": [
+								"{{OCTOXLABS_URL}}"
+							],
+							"path": [
+								"companies",
+								"companies"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Company - Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Company Three\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{OCTOXLABS_URL}}/companies/companies",
+									"host": [
+										"{{OCTOXLABS_URL}}"
+									],
+									"path": [
+										"companies",
+										"companies"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 11,\n    \"name\": \"Company Three\",\n    \"is_constant\": false,\n    \"is_active\": false\n}"
+						},
+						{
+							"name": "Create Company - Bad Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{OCTOXLABS_URL}}/companies/companies",
+									"host": [
+										"{{OCTOXLABS_URL}}"
+									],
+									"path": [
+										"companies",
+										"companies"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": [\n        \"This field is required.\"\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Company",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"name\": \"Company Test\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{OCTOXLABS_URL}}/companies/companies/{{ID}}",
+							"host": [
+								"{{OCTOXLABS_URL}}"
+							],
+							"path": [
+								"companies",
+								"companies",
+								"{{ID}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Company - Success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Company Name\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{OCTOXLABS_URL}}/companies/companies/{{ID}}",
+									"host": [
+										"{{OCTOXLABS_URL}}"
+									],
+									"path": [
+										"companies",
+										"companies",
+										"{{ID}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 25 Oct 2023 15:07:00 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.12"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "djdt-store-id",
+									"value": "3305e7fb951e423a91231c69cfd9135e"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "TimerPanel_utime;dur=161.14999999990687;desc=\"User CPU time\", TimerPanel_stime;dur=9.224000000358501;desc=\"System CPU time\", TimerPanel_total;dur=170.37400000026537;desc=\"Total CPU time\", TimerPanel_total_time;dur=188.2925033569336;desc=\"Elapsed time\", SQLPanel_sql_time;dur=9.809494018554688;desc=\"SQL 7 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "83"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 14,\n    \"name\": \"Company Name\",\n    \"is_constant\": false,\n    \"domain\": null,\n    \"is_active\": false\n}"
+						},
+						{
+							"name": "Update Company- Bad Request",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{}"
+								},
+								"url": {
+									"raw": "{{OCTOXLABS_URL}}/companies/companies/{{ID}}",
+									"host": [
+										"{{OCTOXLABS_URL}}"
+									],
+									"path": [
+										"companies",
+										"companies",
+										"{{ID}}"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 25 Oct 2023 06:45:12 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.12"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "djdt-store-id",
+									"value": "73984c8ac4b14b0da46c9bcf3a46335a"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "TimerPanel_utime;dur=44.57100000036007;desc=\"User CPU time\", TimerPanel_stime;dur=0.0;desc=\"System CPU time\", TimerPanel_total;dur=44.57100000036007;desc=\"Total CPU time\", TimerPanel_total_time;dur=48.834800720214844;desc=\"Elapsed time\", SQLPanel_sql_time;dur=4.137516021728516;desc=\"SQL 2 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "36"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": [\n        \"This field is required.\"\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Company",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{OCTOXLABS_URL}}/companies/companies/{{ID}}",
+							"host": [
+								"{{OCTOXLABS_URL}}"
+							],
+							"path": [
+								"companies",
+								"companies",
+								"{{ID}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Company - Success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{OCTOXLABS_URL}}/companies/companies/{{ID}}",
+									"host": [
+										"{{OCTOXLABS_URL}}"
+									],
+									"path": [
+										"companies",
+										"companies",
+										"{{ID}}"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 25 Oct 2023 07:11:07 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.12"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "djdt-store-id",
+									"value": "ae88edab301c4d3bb0bfe92d91ecc8f9"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "TimerPanel_utime;dur=72.89399999990565;desc=\"User CPU time\", TimerPanel_stime;dur=5.4870000003575115;desc=\"System CPU time\", TimerPanel_total;dur=78.38100000026316;desc=\"Total CPU time\", TimerPanel_total_time;dur=107.53917694091797;desc=\"Elapsed time\", SQLPanel_sql_time;dur=6.319999694824219;desc=\"SQL 4 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Domains",
+			"item": [
+				{
+					"name": "Fetch Domains",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{OCTOXLABS_URL}}/companies/domains",
+							"host": [
+								"{{OCTOXLABS_URL}}"
+							],
+							"path": [
+								"companies",
+								"domains"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Fetch Domains",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{OCTOXLABS_URL}}/companies/domains",
+									"host": [
+										"{{OCTOXLABS_URL}}"
+									],
+									"path": [
+										"companies",
+										"domains"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 25 Oct 2023 07:46:19 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.12"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "djdt-store-id",
+									"value": "3c00ed11b5c04358ae98e847bf83a2c9"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "TimerPanel_utime;dur=98.78500000013446;desc=\"User CPU time\", TimerPanel_stime;dur=0.0;desc=\"System CPU time\", TimerPanel_total;dur=98.78500000013446;desc=\"Total CPU time\", TimerPanel_total_time;dur=103.68227958679199;desc=\"Elapsed time\", SQLPanel_sql_time;dur=4.508018493652344;desc=\"SQL 3 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "331"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"count\": 3,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": 78,\n            \"domain\": \"localhostMina.123\",\n            \"tenant\": 5,\n            \"is_primary\": false,\n            \"tenant_name\": \"minalinko<deleted>\"\n        },\n        {\n            \"id\": 2,\n            \"domain\": \"172.16.210.116\",\n            \"tenant\": 1,\n            \"is_primary\": false,\n            \"tenant_name\": \"Octoxlabs\"\n        },\n        {\n            \"id\": 1,\n            \"domain\": \"localhost\",\n            \"tenant\": 1,\n            \"is_primary\": true,\n            \"tenant_name\": \"Octoxlabs\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Domain",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"domain\": \"localhost.name\",\n    \"tenant\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{OCTOXLABS_URL}}/companies/domains",
+							"host": [
+								"{{OCTOXLABS_URL}}"
+							],
+							"path": [
+								"companies",
+								"domains"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Domain - Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"domain\": \"localhost.company\",\n    \"tenant\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{OCTOXLABS_URL}}/companies/domains",
+									"host": [
+										"{{OCTOXLABS_URL}}"
+									],
+									"path": [
+										"companies",
+										"domains"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 25 Oct 2023 07:50:01 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.12"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "djdt-store-id",
+									"value": "2abcb0ad415f450e9bfc3d8179260537"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "TimerPanel_utime;dur=176.08199999995122;desc=\"User CPU time\", TimerPanel_stime;dur=22.28500000001077;desc=\"System CPU time\", TimerPanel_total;dur=198.366999999962;desc=\"Total CPU time\", TimerPanel_total_time;dur=223.32000732421875;desc=\"Elapsed time\", SQLPanel_sql_time;dur=9.588241577148438;desc=\"SQL 8 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "93"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 88,\n    \"domain\": \"localhost.company\",\n    \"tenant\": 1,\n    \"is_primary\": true,\n    \"tenant_name\": \"Octoxlabs\"\n}"
+						},
+						{
+							"name": "Create Domain - Bad Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{OCTOXLABS_URL}}/companies/domains",
+									"host": [
+										"{{OCTOXLABS_URL}}"
+									],
+									"path": [
+										"companies",
+										"domains"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 25 Oct 2023 07:50:42 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.12"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "djdt-store-id",
+									"value": "692979908f9a4e6d93971d314545f9d8"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "TimerPanel_utime;dur=34.676000000217755;desc=\"User CPU time\", TimerPanel_stime;dur=0.9800000007089693;desc=\"System CPU time\", TimerPanel_total;dur=35.656000000926724;desc=\"Total CPU time\", TimerPanel_total_time;dur=38.7265682220459;desc=\"Elapsed time\", SQLPanel_sql_time;dur=2.7523040771484375;desc=\"SQL 1 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "75"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"domain\": [\n        \"This field is required.\"\n    ],\n    \"tenant\": [\n        \"This field is required.\"\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Domain",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"domain\": \"localhost.name\",\n    \"tenant\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{OCTOXLABS_URL}}/companies/domains/1",
+							"host": [
+								"{{OCTOXLABS_URL}}"
+							],
+							"path": [
+								"companies",
+								"domains",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Domain- Success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"domain\": \"localhost.company\",\n    \"tenant\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{OCTOXLABS_URL}}/companies/domains/88",
+									"host": [
+										"{{OCTOXLABS_URL}}"
+									],
+									"path": [
+										"companies",
+										"domains",
+										"88"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 25 Oct 2023 07:56:15 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.12"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "djdt-store-id",
+									"value": "503a37adc02b4f59bb9a69d3dbf4a6b6"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "TimerPanel_utime;dur=173.62099999991187;desc=\"User CPU time\", TimerPanel_stime;dur=19.922999999835156;desc=\"System CPU time\", TimerPanel_total;dur=193.54399999974703;desc=\"Total CPU time\", TimerPanel_total_time;dur=187.1640682220459;desc=\"Elapsed time\", SQLPanel_sql_time;dur=10.220766067504883;desc=\"SQL 9 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "93"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 88,\n    \"domain\": \"localhost.company\",\n    \"tenant\": 1,\n    \"is_primary\": true,\n    \"tenant_name\": \"Octoxlabs\"\n}"
+						},
+						{
+							"name": "Update Domain - Bad Request",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"domain\": \"\",\n    \"tenant\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{OCTOXLABS_URL}}companies/domains/88",
+									"host": [
+										"{{OCTOXLABS_URL}}companies"
+									],
+									"path": [
+										"domains",
+										"88"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 25 Oct 2023 14:51:43 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.12"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "djdt-store-id",
+									"value": "f39eb7c341be4e75bd730c3527f4070b"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "TimerPanel_utime;dur=43.37200000009034;desc=\"User CPU time\", TimerPanel_stime;dur=1.5339999999923748;desc=\"System CPU time\", TimerPanel_total;dur=44.90600000008271;desc=\"Total CPU time\", TimerPanel_total_time;dur=49.87072944641113;desc=\"Elapsed time\", SQLPanel_sql_time;dur=4.352092742919922;desc=\"SQL 3 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "43"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"domain\": [\n        \"This field may not be blank.\"\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Domain",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{OCTOXLABS_URL}}/companies/domains/78",
+							"host": [
+								"{{OCTOXLABS_URL}}"
+							],
+							"path": [
+								"companies",
+								"domains",
+								"78"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Domain - Succes",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{OCTOXLABS_URL}}/companies/domains/78",
+									"host": [
+										"{{OCTOXLABS_URL}}"
+									],
+									"path": [
+										"companies",
+										"domains",
+										"78"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 25 Oct 2023 07:59:52 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.12"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "djdt-store-id",
+									"value": "4bb31343edd34fbdafa673ac11f97fa8"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "TimerPanel_utime;dur=283.61000000040804;desc=\"User CPU time\", TimerPanel_stime;dur=44.79300000002695;desc=\"System CPU time\", TimerPanel_total;dur=328.403000000435;desc=\"Total CPU time\", TimerPanel_total_time;dur=321.61831855773926;desc=\"Elapsed time\", SQLPanel_sql_time;dur=21.38233184814453;desc=\"SQL 13 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Fetch Users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{OCTOXLABS_URL}}/users/users",
+							"host": [
+								"{{OCTOXLABS_URL}}"
+							],
+							"path": [
+								"users",
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Fetch Users",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{OCTOXLABS_URL}}/users/users",
+									"host": [
+										"{{OCTOXLABS_URL}}"
+									],
+									"path": [
+										"users",
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 25 Oct 2023 08:26:10 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.12"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "djdt-store-id",
+									"value": "cf051822902b4a48b5fff4aff0c0595c"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "TimerPanel_utime;dur=51.07199999929435;desc=\"User CPU time\", TimerPanel_stime;dur=8.32300000001851;desc=\"System CPU time\", TimerPanel_total;dur=59.39499999931286;desc=\"Total CPU time\", TimerPanel_total_time;dur=67.9011344909668;desc=\"Elapsed time\", SQLPanel_sql_time;dur=8.311271667480469;desc=\"SQL 4 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "869"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"count\": 1,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": 1,\n            \"email\": \"support@octoxlabs.com\",\n            \"username\": \"admin\",\n            \"name\": \"Admin Octoxlabs\",\n            \"first_name\": \"Admin\",\n            \"last_name\": \"Octoxlabs\",\n            \"last_login\": \"2025-10-08T09:17:13.937541+03:00\",\n            \"is_active\": true,\n            \"is_ldap\": false,\n            \"otp_enabled\": null,\n            \"groups\": [\n                {\n                    \"id\": 1,\n                    \"name\": \"Administrators\"\n                },\n                {\n                    \"id\": 3,\n                    \"name\": \"Your Company Name\"\n                }\n            ]\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"deniz.genc@octoxlabs.com\",\n    \"username\": \"compasdany\",\n    \"name\": \"Company Users\",\n    \"first_name\": \"Compansy\",\n    \"last_name\": \"Users\",\n    \"group_ids\": [\n        1\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{OCTOXLABS_URL}}/users/users",
+							"host": [
+								"{{OCTOXLABS_URL}}"
+							],
+							"path": [
+								"users",
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create User - Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"name@company.com\",\n    \"username\": \"usercompany\",\n    \"name\": \"Company User\",\n    \"first_name\": \"Company\",\n    \"last_name\": \"User\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{OCTOXLABS_URL}}/users/users",
+									"host": [
+										"{{OCTOXLABS_URL}}"
+									],
+									"path": [
+										"users",
+										"users"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 25 Oct 2023 11:23:44 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.12"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "djdt-store-id",
+									"value": "3cf41228e46a43a894cc918ece8b3030"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "TimerPanel_utime;dur=205.73000000058528;desc=\"User CPU time\", TimerPanel_stime;dur=3.8330000006681075;desc=\"System CPU time\", TimerPanel_total;dur=209.56300000125339;desc=\"Total CPU time\", TimerPanel_total_time;dur=232.36417770385742;desc=\"Elapsed time\", SQLPanel_sql_time;dur=11.07478141784668;desc=\"SQL 8 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "148"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 11,\n    \"email\": \"name@company.com\",\n    \"username\": \"usercompany\",\n    \"first_name\": \"Company\",\n    \"last_name\": \"User\",\n    \"is_active\": true,\n    \"is_ldap\": false,\n    \"groups\": []\n}"
+						},
+						{
+							"name": "Create User - Bad Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"\",\n    \"username\": \"\",\n    \"name\": \"Company User\",\n    \"first_name\": \"Company\",\n    \"last_name\": \"User\",\n    \"group_ids\": [\n        20,\n        1\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{OCTOXLABS_URL}}/users/users",
+									"host": [
+										"{{OCTOXLABS_URL}}"
+									],
+									"path": [
+										"users",
+										"users"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 25 Oct 2023 14:56:27 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.12"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "djdt-store-id",
+									"value": "6a2416819146409da2b8c95720aadca3"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "TimerPanel_utime;dur=22.647000000688422;desc=\"User CPU time\", TimerPanel_stime;dur=5.248000000392494;desc=\"System CPU time\", TimerPanel_total;dur=27.895000001080916;desc=\"Total CPU time\", TimerPanel_total_time;dur=29.862642288208008;desc=\"Elapsed time\", SQLPanel_sql_time;dur=1.8160343170166016;desc=\"SQL 1 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "45"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"username\": [\n        \"This field may not be blank.\"\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"company@name.com\",\n    \"username\": \"name\",\n    \"name\": \"User Company\",\n    \"first_name\": \"User\",\n    \"last_name\": \"Company\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{OCTOXLABS_URL}}/users/users/{{ID}}",
+							"host": [
+								"{{OCTOXLABS_URL}}"
+							],
+							"path": [
+								"users",
+								"users",
+								"{{ID}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update User - Success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"company@name.com\",\n    \"username\": \"name\",\n    \"name\": \"Admin Company\",\n    \"first_name\": \"Admin\",\n    \"last_name\": \"Company\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{OCTOXLABS_URL}}/users/users/11",
+									"host": [
+										"{{OCTOXLABS_URL}}"
+									],
+									"path": [
+										"users",
+										"users",
+										"11"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 25 Oct 2023 11:27:03 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.12"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "djdt-store-id",
+									"value": "d2ce8beff3384aff872b0f70ade5cc7e"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "TimerPanel_utime;dur=132.48199999998178;desc=\"User CPU time\", TimerPanel_stime;dur=13.938000000052853;desc=\"System CPU time\", TimerPanel_total;dur=146.42000000003463;desc=\"Total CPU time\", TimerPanel_total_time;dur=179.21185493469238;desc=\"Elapsed time\", SQLPanel_sql_time;dur=12.277364730834961;desc=\"SQL 7 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "164"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 11,\n    \"email\": \"company@name.com\",\n    \"username\": \"name\",\n    \"name\": \"Company User\",\n    \"first_name\": \"Admin\",\n    \"last_name\": \"Company\",\n    \"is_active\": true,\n    \"is_ldap\": false,\n    \"groups\": []\n}"
+						},
+						{
+							"name": "Update User -Bad Request",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"company@name.com\",\n    \"username\": \"\",\n    \"name\": \"User Company\",\n    \"first_name\": \"User\",\n    \"last_name\": \"Company\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{OCTOXLABS_URL}}/users/users/11",
+									"host": [
+										"{{OCTOXLABS_URL}}"
+									],
+									"path": [
+										"users",
+										"users",
+										"11"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 25 Oct 2023 14:50:10 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.12"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "djdt-store-id",
+									"value": "f341233190fb4f008ad2f020e852f015"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "TimerPanel_utime;dur=110.81100000046717;desc=\"User CPU time\", TimerPanel_stime;dur=1.5220000004774192;desc=\"System CPU time\", TimerPanel_total;dur=112.3330000009446;desc=\"Total CPU time\", TimerPanel_total_time;dur=122.3304271697998;desc=\"Elapsed time\", SQLPanel_sql_time;dur=9.808778762817383;desc=\"SQL 3 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "45"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"username\": [\n        \"This field may not be blank.\"\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{OCTOXLABS_URL}}/users/users",
+							"host": [
+								"{{OCTOXLABS_URL}}"
+							],
+							"path": [
+								"users",
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete User - Success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{OCTOXLABS_URL}}/users/users/7",
+									"host": [
+										"{{OCTOXLABS_URL}}"
+									],
+									"path": [
+										"users",
+										"users",
+										"7"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 25 Oct 2023 08:37:44 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.12"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "djdt-store-id",
+									"value": "994346c976624332903b8a455c42eb5b"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "TimerPanel_utime;dur=155.83799999967596;desc=\"User CPU time\", TimerPanel_stime;dur=4.737000000204716;desc=\"System CPU time\", TimerPanel_total;dur=160.57499999988067;desc=\"Total CPU time\", TimerPanel_total_time;dur=200.2246379852295;desc=\"Elapsed time\", SQLPanel_sql_time;dur=11.725187301635742;desc=\"SQL 7 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Groups",
+			"item": [
+				{
+					"name": "Fetch Groups",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{OCTOXLABS_URL}}/users/groups",
+							"host": [
+								"{{OCTOXLABS_URL}}"
+							],
+							"path": [
+								"users",
+								"groups"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Fetch Groups",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{OCTOXLABS_URL}}/users/groups",
+									"host": [
+										"{{OCTOXLABS_URL}}"
+									],
+									"path": [
+										"users",
+										"groups"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 25 Oct 2023 08:53:57 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.12"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "djdt-store-id",
+									"value": "dab6f3924aed413ca6118bd761b278e7"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "TimerPanel_utime;dur=106.42899999947986;desc=\"User CPU time\", TimerPanel_stime;dur=0.0;desc=\"System CPU time\", TimerPanel_total;dur=106.42899999947986;desc=\"Total CPU time\", TimerPanel_total_time;dur=138.75818252563477;desc=\"Elapsed time\", SQLPanel_sql_time;dur=29.895782470703125;desc=\"SQL 6 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "141"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"count\": 2,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": 2,\n            \"name\": \"Auditors\",\n            \"user_count\": 0\n        },\n        {\n            \"id\": 1,\n            \"name\": \"Administrators\",\n            \"user_count\": 1\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Fetch Permissions",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{OCTOXLABS_URL}}/users/permissions?size=150",
+							"host": [
+								"{{OCTOXLABS_URL}}"
+							],
+							"path": [
+								"users",
+								"permissions"
+							],
+							"query": [
+								{
+									"key": "size",
+									"value": "150"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Fetch Permissions",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{OCTOXLABS_URL}}/users/permissions?size=150",
+									"host": [
+										"{{OCTOXLABS_URL}}"
+									],
+									"path": [
+										"users",
+										"permissions"
+									],
+									"query": [
+										{
+											"key": "size",
+											"value": "150"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 25 Oct 2023 13:25:38 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.12"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET"
+								},
+								{
+									"key": "djdt-store-id",
+									"value": "096af476b9c54fe0a18701b2293c9c0b"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "TimerPanel_utime;dur=118.54200000016135;desc=\"User CPU time\", TimerPanel_stime;dur=1.2950000000273576;desc=\"System CPU time\", TimerPanel_total;dur=119.83700000018871;desc=\"Total CPU time\", TimerPanel_total_time;dur=132.1699619293213;desc=\"Elapsed time\", SQLPanel_sql_time;dur=12.041807174682617;desc=\"SQL 4 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "8629"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"count\": 156,\n    \"next\": \"http://localhost:8000/users/permissions?page=2&size=150\",\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": 61,\n            \"name\": \"Can clear system logs\",\n            \"codename\": \"clear_system_log\",\n            \"app\": \"activities\"\n        },\n        {\n            \"id\": 59,\n            \"name\": \"Can view activity\",\n            \"codename\": \"view_activity\",\n            \"app\": \"activities\"\n        },\n        {\n            \"id\": 60,\n            \"name\": \"Can view system logs\",\n            \"codename\": \"view_system_log\",\n            \"app\": \"activities\"\n        },\n        {\n            \"id\": 66,\n            \"name\": \"Can add connection\",\n            \"codename\": \"add_connection\",\n            \"app\": \"adapters\"\n        },\n        {\n            \"id\": 67,\n            \"name\": \"Can change connection\",\n            \"codename\": \"change_connection\",\n            \"app\": \"adapters\"\n        },\n        {\n            \"id\": 68,\n            \"name\": \"Can delete connection\",\n            \"codename\": \"delete_connection\",\n            \"app\": \"adapters\"\n        },\n        {\n            \"id\": 69,\n            \"name\": \"Can view connection\",\n            \"codename\": \"view_connection\",\n            \"app\": \"adapters\"\n        },\n        {\n            \"id\": 55,\n            \"name\": \"Can add user token\",\n            \"codename\": \"add_usertoken\",\n            \"app\": \"api\"\n        },\n        {\n            \"id\": 56,\n            \"name\": \"Can change user token\",\n            \"codename\": \"change_usertoken\",\n            \"app\": \"api\"\n        },\n        {\n            \"id\": 57,\n            \"name\": \"Can delete user token\",\n            \"codename\": \"delete_usertoken\",\n            \"app\": \"api\"\n        },\n        {\n            \"id\": 58,\n            \"name\": \"Can view user token\",\n            \"codename\": \"view_usertoken\",\n            \"app\": \"api\"\n        },\n        {\n            \"id\": 145,\n            \"name\": \"Can add group\",\n            \"codename\": \"add_group\",\n            \"app\": \"appinventory\"\n        },\n        {\n            \"id\": 146,\n            \"name\": \"Can change group\",\n            \"codename\": \"change_group\",\n            \"app\": \"appinventory\"\n        },\n        {\n            \"id\": 147,\n            \"name\": \"Can delete group\",\n            \"codename\": \"delete_group\",\n            \"app\": \"appinventory\"\n        },\n        {\n            \"id\": 148,\n            \"name\": \"Can view group\",\n            \"codename\": \"view_group\",\n            \"app\": \"appinventory\"\n        },\n        {\n            \"id\": 187,\n            \"name\": \"Can add group\",\n            \"codename\": \"add_group\",\n            \"app\": \"auth\"\n        },\n        {\n            \"id\": 188,\n            \"name\": \"Can change group\",\n            \"codename\": \"change_group\",\n            \"app\": \"auth\"\n        },\n        {\n            \"id\": 189,\n            \"name\": \"Can delete group\",\n            \"codename\": \"delete_group\",\n            \"app\": \"auth\"\n        },\n        {\n            \"id\": 190,\n            \"name\": \"Can view group\",\n            \"codename\": \"view_group\",\n            \"app\": \"auth\"\n        },\n        {\n            \"id\": 203,\n            \"name\": \"Can add Token\",\n            \"codename\": \"add_token\",\n            \"app\": \"authtoken\"\n        },\n        {\n            \"id\": 204,\n            \"name\": \"Can change Token\",\n            \"codename\": \"change_token\",\n            \"app\": \"authtoken\"\n        },\n        {\n            \"id\": 205,\n            \"name\": \"Can delete Token\",\n            \"codename\": \"delete_token\",\n            \"app\": \"authtoken\"\n        },\n        {\n            \"id\": 206,\n            \"name\": \"Can view Token\",\n            \"codename\": \"view_token\",\n            \"app\": \"authtoken\"\n        },\n        {\n            \"id\": 130,\n            \"name\": \"Can change vulnerability enrichment\",\n            \"codename\": \"change_vulnerabilityenrichment\",\n            \"app\": \"avm\"\n        },\n        {\n            \"id\": 132,\n            \"name\": \"Can view vulnerability enrichment\",\n            \"codename\": \"view_vulnerabilityenrichment\",\n            \"app\": \"avm\"\n        },\n        {\n            \"id\": 126,\n            \"name\": \"Can add vulnerability false positive\",\n            \"codename\": \"add_vulnerabilityfalsepositive\",\n            \"app\": \"avm\"\n        },\n        {\n            \"id\": 128,\n            \"name\": \"Can delete vulnerability false positive\",\n            \"codename\": \"delete_vulnerabilityfalsepositive\",\n            \"app\": \"avm\"\n        },\n        {\n            \"id\": 127,\n            \"name\": \"Can view vulnerability false positive\",\n            \"codename\": \"view_vulnerabilityfalsepositive\",\n            \"app\": \"avm\"\n        },\n        {\n            \"id\": 3,\n            \"name\": \"Can add company\",\n            \"codename\": \"add_company\",\n            \"app\": \"companies\"\n        },\n        {\n            \"id\": 4,\n            \"name\": \"Can change company\",\n            \"codename\": \"change_company\",\n            \"app\": \"companies\"\n        },\n        {\n            \"id\": 5,\n            \"name\": \"Can delete company\",\n            \"codename\": \"delete_company\",\n            \"app\": \"companies\"\n        },\n        {\n            \"id\": 6,\n            \"name\": \"Can view company\",\n            \"codename\": \"view_company\",\n            \"app\": \"companies\"\n        },\n        {\n            \"id\": 11,\n            \"name\": \"Can add company admin\",\n            \"codename\": \"add_companyadmin\",\n            \"app\": \"companies\"\n        },\n        {\n            \"id\": 12,\n            \"name\": \"Can change company admin\",\n            \"codename\": \"change_companyadmin\",\n            \"app\": \"companies\"\n        },\n        {\n            \"id\": 13,\n            \"name\": \"Can delete company admin\",\n            \"codename\": \"delete_companyadmin\",\n            \"app\": \"companies\"\n        },\n        {\n            \"id\": 14,\n            \"name\": \"Can view company admin\",\n            \"codename\": \"view_companyadmin\",\n            \"app\": \"companies\"\n        },\n        {\n            \"id\": 7,\n            \"name\": \"Can add domain\",\n            \"codename\": \"add_domain\",\n            \"app\": \"companies\"\n        },\n        {\n            \"id\": 8,\n            \"name\": \"Can change domain\",\n            \"codename\": \"change_domain\",\n            \"app\": \"companies\"\n        },\n        {\n            \"id\": 9,\n            \"name\": \"Can delete domain\",\n            \"codename\": \"delete_domain\",\n            \"app\": \"companies\"\n        },\n        {\n            \"id\": 10,\n            \"name\": \"Can view domain\",\n            \"codename\": \"view_domain\",\n            \"app\": \"companies\"\n        },\n        {\n            \"id\": 52,\n            \"name\": \"Can change advanced configuration\",\n            \"codename\": \"change_advancedconfiguration\",\n            \"app\": \"configurations\"\n        },\n        {\n            \"id\": 51,\n            \"name\": \"Can view advanced configuration\",\n            \"codename\": \"view_advancedconfiguration\",\n            \"app\": \"configurations\"\n        },\n        {\n            \"id\": 54,\n            \"name\": \"Can change avm configuration\",\n            \"codename\": \"change_avmconfiguration\",\n            \"app\": \"configurations\"\n        },\n        {\n            \"id\": 53,\n            \"name\": \"Can view avm configuration\",\n            \"codename\": \"view_avmconfiguration\",\n            \"app\": \"configurations\"\n        },\n        {\n            \"id\": 46,\n            \"name\": \"Can change company settings\",\n            \"codename\": \"change_companysettings\",\n            \"app\": \"configurations\"\n        },\n        {\n            \"id\": 45,\n            \"name\": \"Can view company settings\",\n            \"codename\": \"view_companysettings\",\n            \"app\": \"configurations\"\n        },\n        {\n            \"id\": 37,\n            \"name\": \"Can add discovery schedule\",\n            \"codename\": \"add_discoveryschedule\",\n            \"app\": \"configurations\"\n        },\n        {\n            \"id\": 38,\n            \"name\": \"Can change discovery schedule\",\n            \"codename\": \"change_discoveryschedule\",\n            \"app\": \"configurations\"\n        },\n        {\n            \"id\": 39,\n            \"name\": \"Can delete discovery schedule\",\n            \"codename\": \"delete_discoveryschedule\",\n            \"app\": \"configurations\"\n        },\n        {\n            \"id\": 40,\n            \"name\": \"Can view discovery schedule\",\n            \"codename\": \"view_discoveryschedule\",\n            \"app\": \"configurations\"\n        },\n        {\n            \"id\": 42,\n            \"name\": \"Can change discovery settings\",\n            \"codename\": \"change_discoverysettings\",\n            \"app\": \"configurations\"\n        },\n        {\n            \"id\": 41,\n            \"name\": \"Can view discovery settings\",\n            \"codename\": \"view_discoverysettings\",\n            \"app\": \"configurations\"\n        },\n        {\n            \"id\": 1,\n            \"name\": \"Can add ldap configuration\",\n            \"codename\": \"add_ldapconfiguration\",\n            \"app\": \"configurations\"\n        },\n        {\n            \"id\": 44,\n            \"name\": \"Can change ldap configuration\",\n            \"codename\": \"change_ldapconfiguration\",\n            \"app\": \"configurations\"\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Can delete ldap configuration\",\n            \"codename\": \"delete_ldapconfiguration\",\n            \"app\": \"configurations\"\n        },\n        {\n            \"id\": 43,\n            \"name\": \"Can view ldap configuration\",\n            \"codename\": \"view_ldapconfiguration\",\n            \"app\": \"configurations\"\n        },\n        {\n            \"id\": 48,\n            \"name\": \"Can change license configuration\",\n            \"codename\": \"change_licenseconfiguration\",\n            \"app\": \"configurations\"\n        },\n        {\n            \"id\": 47,\n            \"name\": \"Can view license configuration\",\n            \"codename\": \"view_licenseconfiguration\",\n            \"app\": \"configurations\"\n        },\n        {\n            \"id\": 36,\n            \"name\": \"Can change smtp configuration\",\n            \"codename\": \"change_smtpconfiguration\",\n            \"app\": \"configurations\"\n        },\n        {\n            \"id\": 35,\n            \"name\": \"Can view smtp configuration\",\n            \"codename\": \"view_smtpconfiguration\",\n            \"app\": \"configurations\"\n        },\n        {\n            \"id\": 50,\n            \"name\": \"Can change syslog configuration\",\n            \"codename\": \"change_syslogconfiguration\",\n            \"app\": \"configurations\"\n        },\n        {\n            \"id\": 49,\n            \"name\": \"Can view syslog configuration\",\n            \"codename\": \"view_syslogconfiguration\",\n            \"app\": \"configurations\"\n        },\n        {\n            \"id\": 149,\n            \"name\": \"Can add connector\",\n            \"codename\": \"add_connector\",\n            \"app\": \"connectors\"\n        },\n        {\n            \"id\": 150,\n            \"name\": \"Can change connector\",\n            \"codename\": \"change_connector\",\n            \"app\": \"connectors\"\n        },\n        {\n            \"id\": 151,\n            \"name\": \"Can delete connector\",\n            \"codename\": \"delete_connector\",\n            \"app\": \"connectors\"\n        },\n        {\n            \"id\": 152,\n            \"name\": \"Can view connector\",\n            \"codename\": \"view_connector\",\n            \"app\": \"connectors\"\n        },\n        {\n            \"id\": 158,\n            \"name\": \"Can add Custom Data\",\n            \"codename\": \"add_data\",\n            \"app\": \"customs\"\n        },\n        {\n            \"id\": 159,\n            \"name\": \"Can change Custom Data\",\n            \"codename\": \"change_data\",\n            \"app\": \"customs\"\n        },\n        {\n            \"id\": 160,\n            \"name\": \"Can delete Custom Data\",\n            \"codename\": \"delete_data\",\n            \"app\": \"customs\"\n        },\n        {\n            \"id\": 162,\n            \"name\": \"Can upload custom data file\",\n            \"codename\": \"upload_custom_data_file\",\n            \"app\": \"customs\"\n        },\n        {\n            \"id\": 161,\n            \"name\": \"Can view Custom Data\",\n            \"codename\": \"view_data\",\n            \"app\": \"customs\"\n        },\n        {\n            \"id\": 153,\n            \"name\": \"Can add Custom Field\",\n            \"codename\": \"add_field\",\n            \"app\": \"customs\"\n        },\n        {\n            \"id\": 154,\n            \"name\": \"Can change Custom Field\",\n            \"codename\": \"change_field\",\n            \"app\": \"customs\"\n        },\n        {\n            \"id\": 155,\n            \"name\": \"Can delete Custom Field\",\n            \"codename\": \"delete_field\",\n            \"app\": \"customs\"\n        },\n        {\n            \"id\": 157,\n            \"name\": \"Can upload custom fields file\",\n            \"codename\": \"upload_custom_fields_file\",\n            \"app\": \"customs\"\n        },\n        {\n            \"id\": 156,\n            \"name\": \"Can view Custom Field\",\n            \"codename\": \"view_field\",\n            \"app\": \"customs\"\n        },\n        {\n            \"id\": 91,\n            \"name\": \"Can add chart\",\n            \"codename\": \"add_chart\",\n            \"app\": \"dashboards\"\n        },\n        {\n            \"id\": 92,\n            \"name\": \"Can change chart\",\n            \"codename\": \"change_chart\",\n            \"app\": \"dashboards\"\n        },\n        {\n            \"id\": 93,\n            \"name\": \"Can delete chart\",\n            \"codename\": \"delete_chart\",\n            \"app\": \"dashboards\"\n        },\n        {\n            \"id\": 87,\n            \"name\": \"Can add dashboard\",\n            \"codename\": \"add_dashboard\",\n            \"app\": \"dashboards\"\n        },\n        {\n            \"id\": 88,\n            \"name\": \"Can change dashboard\",\n            \"codename\": \"change_dashboard\",\n            \"app\": \"dashboards\"\n        },\n        {\n            \"id\": 89,\n            \"name\": \"Can delete dashboard\",\n            \"codename\": \"delete_dashboard\",\n            \"app\": \"dashboards\"\n        },\n        {\n            \"id\": 141,\n            \"name\": \"Can add device relation\",\n            \"codename\": \"add_devicerelation\",\n            \"app\": \"devices\"\n        },\n        {\n            \"id\": 142,\n            \"name\": \"Can change device relation\",\n            \"codename\": \"change_devicerelation\",\n            \"app\": \"devices\"\n        },\n        {\n            \"id\": 143,\n            \"name\": \"Can delete device relation\",\n            \"codename\": \"delete_devicerelation\",\n            \"app\": \"devices\"\n        },\n        {\n            \"id\": 144,\n            \"name\": \"Can view device relation\",\n            \"codename\": \"view_devicerelation\",\n            \"app\": \"devices\"\n        },\n        {\n            \"id\": 137,\n            \"name\": \"Can add note\",\n            \"codename\": \"add_note\",\n            \"app\": \"devices\"\n        },\n        {\n            \"id\": 138,\n            \"name\": \"Can change note\",\n            \"codename\": \"change_note\",\n            \"app\": \"devices\"\n        },\n        {\n            \"id\": 139,\n            \"name\": \"Can delete note\",\n            \"codename\": \"delete_note\",\n            \"app\": \"devices\"\n        },\n        {\n            \"id\": 140,\n            \"name\": \"Can view note\",\n            \"codename\": \"view_note\",\n            \"app\": \"devices\"\n        },\n        {\n            \"id\": 133,\n            \"name\": \"Can add tag\",\n            \"codename\": \"add_tag\",\n            \"app\": \"devices\"\n        },\n        {\n            \"id\": 134,\n            \"name\": \"Can change tag\",\n            \"codename\": \"change_tag\",\n            \"app\": \"devices\"\n        },\n        {\n            \"id\": 135,\n            \"name\": \"Can delete tag\",\n            \"codename\": \"delete_tag\",\n            \"app\": \"devices\"\n        },\n        {\n            \"id\": 136,\n            \"name\": \"Can view tag\",\n            \"codename\": \"view_tag\",\n            \"app\": \"devices\"\n        },\n        {\n            \"id\": 83,\n            \"name\": \"Can add connection status\",\n            \"codename\": \"add_connectionstatus\",\n            \"app\": \"discoveries\"\n        },\n        {\n            \"id\": 84,\n            \"name\": \"Can change connection status\",\n            \"codename\": \"change_connectionstatus\",\n            \"app\": \"discoveries\"\n        },\n        {\n            \"id\": 85,\n            \"name\": \"Can delete connection status\",\n            \"codename\": \"delete_connectionstatus\",\n            \"app\": \"discoveries\"\n        },\n        {\n            \"id\": 86,\n            \"name\": \"Can view connection status\",\n            \"codename\": \"view_connectionstatus\",\n            \"app\": \"discoveries\"\n        },\n        {\n            \"id\": 78,\n            \"name\": \"Can start discovery\",\n            \"codename\": \"start_discovery\",\n            \"app\": \"discoveries\"\n        },\n        {\n            \"id\": 82,\n            \"name\": \"Can view discovery step\",\n            \"codename\": \"view_discoverystep\",\n            \"app\": \"discoveries\"\n        },\n        {\n            \"id\": 111,\n            \"name\": \"Can add license\",\n            \"codename\": \"add_license\",\n            \"app\": \"licenses\"\n        },\n        {\n            \"id\": 112,\n            \"name\": \"Can change license\",\n            \"codename\": \"change_license\",\n            \"app\": \"licenses\"\n        },\n        {\n            \"id\": 113,\n            \"name\": \"Can delete license\",\n            \"codename\": \"delete_license\",\n            \"app\": \"licenses\"\n        },\n        {\n            \"id\": 114,\n            \"name\": \"Can view license\",\n            \"codename\": \"view_license\",\n            \"app\": \"licenses\"\n        },\n        {\n            \"id\": 167,\n            \"name\": \"Can add policy\",\n            \"codename\": \"add_policy\",\n            \"app\": \"policies\"\n        },\n        {\n            \"id\": 168,\n            \"name\": \"Can change policy\",\n            \"codename\": \"change_policy\",\n            \"app\": \"policies\"\n        },\n        {\n            \"id\": 169,\n            \"name\": \"Can delete policy\",\n            \"codename\": \"delete_policy\",\n            \"app\": \"policies\"\n        },\n        {\n            \"id\": 170,\n            \"name\": \"Can view policy\",\n            \"codename\": \"view_policy\",\n            \"app\": \"policies\"\n        },\n        {\n            \"id\": 163,\n            \"name\": \"Can add profile\",\n            \"codename\": \"add_profile\",\n            \"app\": \"profiles\"\n        },\n        {\n            \"id\": 164,\n            \"name\": \"Can change profile\",\n            \"codename\": \"change_profile\",\n            \"app\": \"profiles\"\n        },\n        {\n            \"id\": 165,\n            \"name\": \"Can delete profile\",\n            \"codename\": \"delete_profile\",\n            \"app\": \"profiles\"\n        },\n        {\n            \"id\": 166,\n            \"name\": \"Can view profile\",\n            \"codename\": \"view_profile\",\n            \"app\": \"profiles\"\n        },\n        {\n            \"id\": 62,\n            \"name\": \"Can add query\",\n            \"codename\": \"add_query\",\n            \"app\": \"queries\"\n        },\n        {\n            \"id\": 63,\n            \"name\": \"Can change query\",\n            \"codename\": \"change_query\",\n            \"app\": \"queries\"\n        },\n        {\n            \"id\": 64,\n            \"name\": \"Can delete query\",\n            \"codename\": \"delete_query\",\n            \"app\": \"queries\"\n        },\n        {\n            \"id\": 65,\n            \"name\": \"Can view query\",\n            \"codename\": \"view_query\",\n            \"app\": \"queries\"\n        },\n        {\n            \"id\": 102,\n            \"name\": \"Can add report\",\n            \"codename\": \"add_report\",\n            \"app\": \"reports\"\n        },\n        {\n            \"id\": 103,\n            \"name\": \"Can change report\",\n            \"codename\": \"change_report\",\n            \"app\": \"reports\"\n        },\n        {\n            \"id\": 104,\n            \"name\": \"Can delete report\",\n            \"codename\": \"delete_report\",\n            \"app\": \"reports\"\n        },\n        {\n            \"id\": 106,\n            \"name\": \"Can download Report\",\n            \"codename\": \"download_report\",\n            \"app\": \"reports\"\n        },\n        {\n            \"id\": 105,\n            \"name\": \"Can view report\",\n            \"codename\": \"view_report\",\n            \"app\": \"reports\"\n        },\n        {\n            \"id\": 107,\n            \"name\": \"Can add report schedule\",\n            \"codename\": \"add_reportschedule\",\n            \"app\": \"reports\"\n        },\n        {\n            \"id\": 108,\n            \"name\": \"Can change report schedule\",\n            \"codename\": \"change_reportschedule\",\n            \"app\": \"reports\"\n        },\n        {\n            \"id\": 109,\n            \"name\": \"Can delete report schedule\",\n            \"codename\": \"delete_reportschedule\",\n            \"app\": \"reports\"\n        },\n        {\n            \"id\": 110,\n            \"name\": \"Can view report schedule\",\n            \"codename\": \"view_reportschedule\",\n            \"app\": \"reports\"\n        },\n        {\n            \"id\": 15,\n            \"name\": \"Can add user\",\n            \"codename\": \"add_user\",\n            \"app\": \"users\"\n        },\n        {\n            \"id\": 16,\n            \"name\": \"Can change user\",\n            \"codename\": \"change_user\",\n            \"app\": \"users\"\n        },\n        {\n            \"id\": 17,\n            \"name\": \"Can delete user\",\n            \"codename\": \"delete_user\",\n            \"app\": \"users\"\n        },\n        {\n            \"id\": 26,\n            \"name\": \"Can view Application Inventory detail\",\n            \"codename\": \"view_application_detail\",\n            \"app\": \"users\"\n        },\n        {\n            \"id\": 25,\n            \"name\": \"Can view Application Inventory\",\n            \"codename\": \"view_applications\",\n            \"app\": \"users\"\n        },\n        {\n            \"id\": 27,\n            \"name\": \"Can view AVM Vulnerabilities\",\n            \"codename\": \"view_avm_vulnerabilities\",\n            \"app\": \"users\"\n        },\n        {\n            \"id\": 28,\n            \"name\": \"Can view AVM Vulnerability detail\",\n            \"codename\": \"view_avm_vulnerability_detail\",\n            \"app\": \"users\"\n        },\n        {\n            \"id\": 20,\n            \"name\": \"Can view device detail\",\n            \"codename\": \"view_device_detail\",\n            \"app\": \"users\"\n        },\n        {\n            \"id\": 34,\n            \"name\": \"Can view device merge recommendation\",\n            \"codename\": \"view_device_merge_recommendation\",\n            \"app\": \"users\"\n        },\n        {\n            \"id\": 19,\n            \"name\": \"Can view Devices\",\n            \"codename\": \"view_devices\",\n            \"app\": \"users\"\n        },\n        {\n            \"id\": 32,\n            \"name\": \"Can view Octoxlabs Open Ports\",\n            \"codename\": \"view_octoxlabs_open_ports\",\n            \"app\": \"users\"\n        },\n        {\n            \"id\": 33,\n            \"name\": \"Can view Octoxlabs Vulnerabilities\",\n            \"codename\": \"view_octoxlabs_vulnerabilities\",\n            \"app\": \"users\"\n        },\n        {\n            \"id\": 31,\n            \"name\": \"Can view System Information\",\n            \"codename\": \"view_system_information\",\n            \"app\": \"users\"\n        },\n        {\n            \"id\": 18,\n            \"name\": \"Can view user\",\n            \"codename\": \"view_user\",\n            \"app\": \"users\"\n        },\n        {\n            \"id\": 29,\n            \"name\": \"Can view User Inventory\",\n            \"codename\": \"view_user_inventory\",\n            \"app\": \"users\"\n        },\n        {\n            \"id\": 30,\n            \"name\": \"Can view User Inventory detail\",\n            \"codename\": \"view_user_inventory_detail\",\n            \"app\": \"users\"\n        },\n        {\n            \"id\": 175,\n            \"name\": \"Can add widget\",\n            \"codename\": \"add_widget\",\n            \"app\": \"widgets\"\n        },\n        {\n            \"id\": 176,\n            \"name\": \"Can change widget\",\n            \"codename\": \"change_widget\",\n            \"app\": \"widgets\"\n        },\n        {\n            \"id\": 177,\n            \"name\": \"Can delete widget\",\n            \"codename\": \"delete_widget\",\n            \"app\": \"widgets\"\n        },\n        {\n            \"id\": 178,\n            \"name\": \"Can view widget\",\n            \"codename\": \"view_widget\",\n            \"app\": \"widgets\"\n        },\n        {\n            \"id\": 121,\n            \"name\": \"Can change job settings\",\n            \"codename\": \"change_jobsettings\",\n            \"app\": \"workflows\"\n        },\n        {\n            \"id\": 120,\n            \"name\": \"Can view job settings\",\n            \"codename\": \"view_jobsettings\",\n            \"app\": \"workflows\"\n        },\n        {\n            \"id\": 122,\n            \"name\": \"Can add ssh settings\",\n            \"codename\": \"add_sshsettings\",\n            \"app\": \"workflows\"\n        },\n        {\n            \"id\": 123,\n            \"name\": \"Can change ssh settings\",\n            \"codename\": \"change_sshsettings\",\n            \"app\": \"workflows\"\n        },\n        {\n            \"id\": 124,\n            \"name\": \"Can delete ssh settings\",\n            \"codename\": \"delete_sshsettings\",\n            \"app\": \"workflows\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Group and Permissions",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Your Companys Name \",\n    \"permissions\": [1,2,3]\n   \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{OCTOXLABS_URL}}/users/groups",
+							"host": [
+								"{{OCTOXLABS_URL}}"
+							],
+							"path": [
+								"users",
+								"groups"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Group \\w Permissions - Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Your Company Name \",\n    \"permissions\": [\n        1,\n        2\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{OCTOXLABS_URL}}/users/groups",
+									"host": [
+										"{{OCTOXLABS_URL}}"
+									],
+									"path": [
+										"users",
+										"groups"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 25 Oct 2023 13:32:33 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.12"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "djdt-store-id",
+									"value": "e2581b148b8b4e8a9ec93550b6e49d88"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "TimerPanel_utime;dur=262.32400000026246;desc=\"User CPU time\", TimerPanel_stime;dur=17.3770000001241;desc=\"System CPU time\", TimerPanel_total;dur=279.70100000038656;desc=\"Total CPU time\", TimerPanel_total_time;dur=315.2451515197754;desc=\"Elapsed time\", SQLPanel_sql_time;dur=20.680904388427734;desc=\"SQL 20 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "255"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 3,\n    \"name\": \"Your Companys Name\",\n    \"permissions\": [\n        3,\n        6,\n        10,\n        1,\n        2,\n        43\n    ],\n    \"hr_permissions\": [\n        {\n            \"id\": 3,\n            \"name\": \"Can add company\",\n            \"codename\": \"add_company\",\n            \"app\": \"companies\"\n        },\n        {\n            \"id\": 6,\n            \"name\": \"Can view company\",\n            \"codename\": \"view_company\",\n            \"app\": \"companies\"\n        },\n        {\n            \"id\": 10,\n            \"name\": \"Can view domain\",\n            \"codename\": \"view_domain\",\n            \"app\": \"companies\"\n        },\n        {\n            \"id\": 1,\n            \"name\": \"Can add ldap configuration\",\n            \"codename\": \"add_ldapconfiguration\",\n            \"app\": \"configurations\"\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Can delete ldap configuration\",\n            \"codename\": \"delete_ldapconfiguration\",\n            \"app\": \"configurations\"\n        },\n        {\n            \"id\": 43,\n            \"name\": \"Can view ldap configuration\",\n            \"codename\": \"view_ldapconfiguration\",\n            \"app\": \"configurations\"\n        }\n    ],\n    \"users\": [],\n    \"adapters\": []\n}"
+						},
+						{
+							"name": "Create Group \\w Permissions - Bad Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"\",\n    \"permissions\": [\n        1,\n        2\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{OCTOXLABS_URL}}/users/groups",
+									"host": [
+										"{{OCTOXLABS_URL}}"
+									],
+									"path": [
+										"users",
+										"groups"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 25 Oct 2023 13:33:05 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.12"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "djdt-store-id",
+									"value": "79647c441a7c46caa8727daaf29691ca"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "TimerPanel_utime;dur=58.23899999995774;desc=\"User CPU time\", TimerPanel_stime;dur=0.0;desc=\"System CPU time\", TimerPanel_total;dur=58.23899999995774;desc=\"Total CPU time\", TimerPanel_total_time;dur=63.8430118560791;desc=\"Elapsed time\", SQLPanel_sql_time;dur=5.266427993774414;desc=\"SQL 3 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "41"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": [\n        \"This field may not be blank.\"\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Groups",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Your Company Name\",\n    \"permissions\": [\n        3,\n        1,\n        2\n    ],\n    \"user_ids\": [\n        1,\n        2\n    ],\n    \"adapter_ids\": [\n        1,\n        2,\n        3\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{OCTOXLABS_URL}}/users/groups/{{ID}}",
+							"host": [
+								"{{OCTOXLABS_URL}}"
+							],
+							"path": [
+								"users",
+								"groups",
+								"{{ID}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Groups - Bad Request",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"\",\n    \"permissions\": [\n        3,\n        1,\n        2\n    ],\n    \"user_ids\": [\n        1,\n        2\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{OCTOXLABS_URL}}/users/groups/{{ID}}",
+									"host": [
+										"{{OCTOXLABS_URL}}"
+									],
+									"path": [
+										"users",
+										"groups",
+										"{{ID}}"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 25 Oct 2023 14:04:58 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.12"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "djdt-store-id",
+									"value": "b4bb17199c1f4b45ac716126f4b7d536"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "TimerPanel_utime;dur=66.86699999954726;desc=\"User CPU time\", TimerPanel_stime;dur=0.0;desc=\"System CPU time\", TimerPanel_total;dur=66.86699999954726;desc=\"Total CPU time\", TimerPanel_total_time;dur=79.9558162689209;desc=\"Elapsed time\", SQLPanel_sql_time;dur=12.069225311279297;desc=\"SQL 8 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "41"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": [\n        \"This field may not be blank.\"\n    ]\n}"
+						},
+						{
+							"name": "Update Groups - Success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Your Companys Name Update\",\n    \"permissions\": [\n        3,\n        1,\n        2\n    ],\n    \"user_ids\": [\n        1,\n        2\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{OCTOXLABS_URL}}/users/groups/{{ID}}",
+									"host": [
+										"{{OCTOXLABS_URL}}"
+									],
+									"path": [
+										"users",
+										"groups",
+										"{{ID}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 25 Oct 2023 13:55:23 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.12"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "djdt-store-id",
+									"value": "4f425e43d4694f5e9866b3c44cbd1daa"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "TimerPanel_utime;dur=221.121999999923;desc=\"User CPU time\", TimerPanel_stime;dur=32.686000000467175;desc=\"System CPU time\", TimerPanel_total;dur=253.80800000039017;desc=\"Total CPU time\", TimerPanel_total_time;dur=269.30761337280273;desc=\"Elapsed time\", SQLPanel_sql_time;dur=25.715351104736328;desc=\"SQL 31 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "516"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 3,\n    \"name\": \"Your Company Name\",\n    \"permissions\": [\n        3,\n        6,\n        10,\n        1,\n        2,\n        43\n    ],\n    \"hr_permissions\": [\n        {\n            \"id\": 3,\n            \"name\": \"Can add company\",\n            \"codename\": \"add_company\",\n            \"app\": \"companies\"\n        },\n        {\n            \"id\": 6,\n            \"name\": \"Can view company\",\n            \"codename\": \"view_company\",\n            \"app\": \"companies\"\n        },\n        {\n            \"id\": 10,\n            \"name\": \"Can view domain\",\n            \"codename\": \"view_domain\",\n            \"app\": \"companies\"\n        },\n        {\n            \"id\": 1,\n            \"name\": \"Can add ldap configuration\",\n            \"codename\": \"add_ldapconfiguration\",\n            \"app\": \"configurations\"\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Can delete ldap configuration\",\n            \"codename\": \"delete_ldapconfiguration\",\n            \"app\": \"configurations\"\n        },\n        {\n            \"id\": 43,\n            \"name\": \"Can view ldap configuration\",\n            \"codename\": \"view_ldapconfiguration\",\n            \"app\": \"configurations\"\n        }\n    ],\n    \"user_count\": 0,\n    \"users\": [\n        {\n            \"id\": 2,\n            \"username\": \"system\",\n            \"first_name\": \"System\",\n            \"last_name\": \"Octoxlabs\"\n        },\n        {\n            \"id\": 1,\n            \"username\": \"admin\",\n            \"first_name\": \"Admin\",\n            \"last_name\": \"Octoxlabs\"\n        }\n    ],\n    \"adapters\": [\n        {\n            \"id\": 2,\n            \"name\": \"Cloudflare\",\n            \"slug\": \"cloudflare\"\n        },\n        {\n            \"id\": 3,\n            \"name\": \"Microsoft CA\",\n            \"slug\": \"microsoft-ca\"\n        },\n        {\n            \"id\": 1,\n            \"name\": \"Custom Data\",\n            \"slug\": \"custom-data\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Groups",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{OCTOXLABS_URL}}/users/groups/{{ID}}",
+							"host": [
+								"{{OCTOXLABS_URL}}"
+							],
+							"path": [
+								"users",
+								"groups",
+								"{{ID}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Groups - Success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{OCTOXLABS_URL}}/users/groups/{{ID}}",
+									"host": [
+										"{{OCTOXLABS_URL}}"
+									],
+									"path": [
+										"users",
+										"groups",
+										"{{ID}}"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 25 Oct 2023 14:22:31 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.12"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "djdt-store-id",
+									"value": "9ff80952011e457391edc5d30dfd4072"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "TimerPanel_utime;dur=266.7799999999261;desc=\"User CPU time\", TimerPanel_stime;dur=6.406000000424683;desc=\"System CPU time\", TimerPanel_total;dur=273.18600000035076;desc=\"Total CPU time\", TimerPanel_total_time;dur=292.0074462890625;desc=\"Elapsed time\", SQLPanel_sql_time;dur=10.671377182006836;desc=\"SQL 10 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Adapters",
+			"item": [
+				{
+					"name": "Fetch Adapters",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{OCTOXLABS_URL}}/adapters/adapters",
+							"host": [
+								"{{OCTOXLABS_URL}}"
+							],
+							"path": [
+								"adapters",
+								"adapters"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Fetch Adapters",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{OCTOXLABS_URL}}/adapters/adapters",
+									"host": [
+										"{{OCTOXLABS_URL}}"
+									],
+									"path": [
+										"adapters",
+										"adapters"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 15 Dec 2023 13:33:28 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.12"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "OPTIONS, GET"
+								},
+								{
+									"key": "djdt-store-id",
+									"value": "01540bd606094b288fe7c218c39d761f"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "TimerPanel_utime;dur=46.130000000061955;desc=\"User CPU time\", TimerPanel_stime;dur=5.866999999966538;desc=\"System CPU time\", TimerPanel_total;dur=51.99700000002849;desc=\"Total CPU time\", TimerPanel_total_time;dur=61.1882209777832;desc=\"Elapsed time\", SQLPanel_sql_time;dur=9.279489517211914;desc=\"SQL 6 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "4099"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"count\": 247,\n    \"next\": \"http://localhost:8000/adapters/adapters?page=2\",\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": 244,\n            \"name\": \"Abnormal Security\",\n            \"slug\": \"abnormal-security\",\n            \"description\": \"Abnormal Security is an AI-based email security platform that focuses on stopping phishing, social engineering, and account takeover attacks through behavioral analysis.\",\n            \"groups\": [\n                \"email_security\"\n            ],\n            \"beta\": false,\n            \"status\": 3,\n            \"adapter_schedule\": 243,\n            \"categories\": [\n                \"user\"\n            ],\n            \"connectors\": [\n                1\n            ],\n            \"connection_count\": 1\n        },\n        {\n            \"id\": 80,\n            \"name\": \"Commvault (Beta)\",\n            \"slug\": \"commvault\",\n            \"description\": \"Offers data protection and recovery solutions for enterprise data management.\",\n            \"groups\": [\n                \"backup\"\n            ],\n            \"beta\": false,\n            \"status\": 3,\n            \"adapter_schedule\": 79,\n            \"categories\": [\n                \"device\"\n            ],\n            \"connectors\": [\n                1\n            ],\n            \"connection_count\": 1\n        },\n        {\n            \"id\": 229,\n            \"name\": \"Microsoft Active Directory\",\n            \"slug\": \"active-directory\",\n            \"description\": \"Active Directory (AD) is a database and set of services that connect users with the network resources they need to get their work done.\",\n            \"groups\": [\n                \"ad\"\n            ],\n            \"beta\": false,\n            \"status\": 3,\n            \"adapter_schedule\": 228,\n            \"categories\": [\n                \"device\",\n                \"user\"\n            ],\n            \"connectors\": [\n                1\n            ],\n            \"connection_count\": 1\n        },\n        {\n            \"id\": 64,\n            \"name\": \"1E Tachyon Beta\",\n            \"slug\": \"one-e-tachyon\",\n            \"description\": \"Provides real-time management and automation for enterprise endpoints\",\n            \"groups\": [\n                \"epm\"\n            ],\n            \"beta\": false,\n            \"status\": 4,\n            \"adapter_schedule\": 63,\n            \"categories\": [\n                \"device\"\n            ],\n            \"connectors\": [],\n            \"connection_count\": 0\n        },\n        {\n            \"id\": 4,\n            \"name\": \"Absolute\",\n            \"slug\": \"absolute\",\n            \"description\": \"Collects absolute adapter device information and installed software information.\",\n            \"groups\": [\n                \"network_monitoring\"\n            ],\n            \"beta\": false,\n            \"status\": 4,\n            \"adapter_schedule\": 3,\n            \"categories\": [\n                \"device\"\n            ],\n            \"connectors\": [],\n            \"connection_count\": 0\n        },\n        {\n            \"id\": 92,\n            \"name\": \"A Cloud Guru\",\n            \"slug\": \"a-cloud-guru\",\n            \"description\": \"An online platform specializing in cloud computing and related technology training.\",\n            \"groups\": [\n                \"learning\"\n            ],\n            \"beta\": false,\n            \"status\": 4,\n            \"adapter_schedule\": 91,\n            \"categories\": [\n                \"user\"\n            ],\n            \"connectors\": [],\n            \"connection_count\": 0\n        },\n        {\n            \"id\": 38,\n            \"name\": \"Acronis\",\n            \"slug\": \"acronis\",\n            \"description\": \"Acronis unifies backup, recovery and anti‑malware for real‑time protection and secure recovery across all environments.\",\n            \"groups\": [\n                \"backup\"\n            ],\n            \"beta\": false,\n            \"status\": 4,\n            \"adapter_schedule\": 37,\n            \"categories\": [\n                \"device\"\n            ],\n            \"connectors\": [],\n            \"connection_count\": 0\n        },\n        {\n            \"id\": 232,\n            \"name\": \"Action 1\",\n            \"slug\": \"action1\",\n            \"description\": \"Action1 is a cloud-based patch management and vulnerability remediation platform.\",\n            \"groups\": [\n                \"epm\"\n            ],\n            \"beta\": false,\n            \"status\": 4,\n            \"adapter_schedule\": 231,\n            \"categories\": [\n                \"device\",\n                \"user\"\n            ],\n            \"connectors\": [],\n            \"connection_count\": 0\n        },\n        {\n            \"id\": 71,\n            \"name\": \"Acunetix\",\n            \"slug\": \"acunetix\",\n            \"description\": \"Acunetix is a web application security scanner that detects vulnerabilities like SQL Injection and XSS, offering automated testing and remediation for secure development.\",\n            \"groups\": [\n                \"dast\"\n            ],\n            \"beta\": false,\n            \"status\": 4,\n            \"adapter_schedule\": 70,\n            \"categories\": [\n                \"device\",\n                \"user\"\n            ],\n            \"connectors\": [],\n            \"connection_count\": 0\n        },\n        {\n            \"id\": 157,\n            \"name\": \"Addigy\",\n            \"slug\": \"addigy\",\n            \"description\": \"IT management platform for Apple devices.\",\n            \"groups\": [\n                \"mdm\"\n            ],\n            \"beta\": false,\n            \"status\": 4,\n            \"adapter_schedule\": 156,\n            \"categories\": [\n                \"device\"\n            ],\n            \"connectors\": [],\n            \"connection_count\": 0\n        },\n        {\n            \"id\": 161,\n            \"name\": \"Admin by Request\",\n            \"slug\": \"admin-by-request\",\n            \"description\": \"Privilege management solution for controlling administrative access.\",\n            \"groups\": [\n                \"pam\"\n            ],\n            \"beta\": false,\n            \"status\": 4,\n            \"adapter_schedule\": 160,\n            \"categories\": [\n                \"device\"\n            ],\n            \"connectors\": [],\n            \"connection_count\": 0\n        },\n        {\n            \"id\": 62,\n            \"name\": \"Aha!\",\n            \"slug\": \"aha\",\n            \"description\": \"Aha! is a product management tool for planning, tracking, and collaborating on product strategies, roadmaps, and releases\",\n            \"groups\": [\n                \"product_management\"\n            ],\n            \"beta\": false,\n            \"status\": 4,\n            \"adapter_schedule\": 61,\n            \"categories\": [\n                \"user\"\n            ],\n            \"connectors\": [],\n            \"connection_count\": 0\n        },\n        {\n            \"id\": 230,\n            \"name\": \"Aircall\",\n            \"slug\": \"aircall\",\n            \"description\": \"Aircall is a cloud-based service for managing business phone systems and customer communications.\",\n            \"groups\": [\n                \"cloud\"\n            ],\n            \"beta\": false,\n            \"status\": 4,\n            \"adapter_schedule\": 229,\n            \"categories\": [\n                \"user\"\n            ],\n            \"connectors\": [],\n            \"connection_count\": 0\n        },\n        {\n            \"id\": 240,\n            \"name\": \"Amplitude\",\n            \"slug\": \"amplitude\",\n            \"description\": \"Amplitude SCIM adapter for automated user provisioning and group management via SCIM 2.0.\",\n            \"groups\": [\n                \"scim-provisioning\"\n            ],\n            \"beta\": false,\n            \"status\": 4,\n            \"adapter_schedule\": 239,\n            \"categories\": [\n                \"user\"\n            ],\n            \"connectors\": [],\n            \"connection_count\": 0\n        },\n        {\n            \"id\": 158,\n            \"name\": \"Apache Cloudstack\",\n            \"slug\": \"apache-cloudstack\",\n            \"description\": \"Open-source cloud computing software for deploying and managing large networks of virtual machines.\",\n            \"groups\": [\n                \"network_monitoring\"\n            ],\n            \"beta\": false,\n            \"status\": 4,\n            \"adapter_schedule\": 157,\n            \"categories\": [\n                \"device\"\n            ],\n            \"connectors\": [],\n            \"connection_count\": 0\n        },\n        {\n            \"id\": 96,\n            \"name\": \"Aruba ClearPass\",\n            \"slug\": \"aruba-clearpass\",\n            \"description\": \"A network access control solution for device identification, policy enforcement, and threat remediation.\",\n            \"groups\": [\n                \"nac\"\n            ],\n            \"beta\": false,\n            \"status\": 4,\n            \"adapter_schedule\": 95,\n            \"categories\": [\n                \"device\",\n                \"user\"\n            ],\n            \"connectors\": [],\n            \"connection_count\": 0\n        },\n        {\n            \"id\": 28,\n            \"name\": \"Asset Panda\",\n            \"slug\": \"asset-panda\",\n            \"description\": \"Simplifies asset tracking and management through configurable workflows and real-time data access.\",\n            \"groups\": [\n                \"itsm\"\n            ],\n            \"beta\": false,\n            \"status\": 4,\n            \"adapter_schedule\": 27,\n            \"categories\": [\n                \"user\"\n            ],\n            \"connectors\": [],\n            \"connection_count\": 0\n        },\n        {\n            \"id\": 159,\n            \"name\": \"Assure1 By Federos\",\n            \"slug\": \"assure1-by-federos\",\n            \"description\": \"Service assurance platform for managing network performance and availability.\",\n            \"groups\": [\n                \"network_monitoring\"\n            ],\n            \"beta\": false,\n            \"status\": 4,\n            \"adapter_schedule\": 158,\n            \"categories\": [\n                \"device\"\n            ],\n            \"connectors\": [],\n            \"connection_count\": 0\n        },\n        {\n            \"id\": 236,\n            \"name\": \"Atera\",\n            \"slug\": \"atera\",\n            \"description\": \"Atera is an all-in-one IT management platform that offers asset management, remote monitoring, and cybersecurity solutions.\",\n            \"groups\": [\n                \"asset_management\"\n            ],\n            \"beta\": false,\n            \"status\": 4,\n            \"adapter_schedule\": 235,\n            \"categories\": [\n                \"device\"\n            ],\n            \"connectors\": [],\n            \"connection_count\": 0\n        },\n        {\n            \"id\": 202,\n            \"name\": \"Attivo Decoy\",\n            \"slug\": \"attivo-decoy\",\n            \"description\": \"Deception technology solution.\",\n            \"groups\": [\n                \"deception\"\n            ],\n            \"beta\": false,\n            \"status\": 4,\n            \"adapter_schedule\": 201,\n            \"categories\": [\n                \"device\"\n            ],\n            \"connectors\": [],\n            \"connection_count\": 0\n        }\n    ],\n    \"configured_count\": 3,\n    \"non_configured_count\": 244\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Discovery",
+			"item": [
+				{
+					"name": "Fetch Discovery",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{OCTOXLABS_URL}}/configurations/discovery",
+							"host": [
+								"{{OCTOXLABS_URL}}"
+							],
+							"path": [
+								"configurations",
+								"discovery"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Fetch Discovery",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{OCTOXLABS_URL}}/configurations/discovery",
+									"host": [
+										"{{OCTOXLABS_URL}}"
+									],
+									"path": [
+										"configurations",
+										"discovery"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 15 Dec 2023 14:55:28 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.12"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, OPTIONS"
+								},
+								{
+									"key": "djdt-store-id",
+									"value": "f5c28773e3dd49da9167b50c0414cd48"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "TimerPanel_utime;dur=26.95199999993747;desc=\"User CPU time\", TimerPanel_stime;dur=0.0;desc=\"System CPU time\", TimerPanel_total;dur=26.95199999993747;desc=\"Total CPU time\", TimerPanel_total_time;dur=30.5025577545166;desc=\"Elapsed time\", SQLPanel_sql_time;dur=3.6885738372802734;desc=\"SQL 2 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "31297"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"log_level\": 20,\n    \"ordering\": {\n        \"Domain\": [\n            \"active-directory\"\n        ],\n        \"OS.Type\": [\n            \"active-directory\",\n            \"commvault\"\n        ],\n        \"Category\": [\n            \"active-directory\",\n            \"commvault\"\n        ],\n        \"OS.Build\": [\n            \"active-directory\"\n        ],\n        \"OS.Major\": [\n            \"active-directory\",\n            \"commvault\"\n        ],\n        \"OS.Minor\": [\n            \"active-directory\",\n            \"commvault\"\n        ],\n        \"OS.Version\": [\n            \"active-directory\",\n            \"commvault\"\n        ],\n        \"LoggedInUsers\": [\n            \"active-directory\"\n        ],\n        \"OS.InstallDate\": [\n            \"active-directory\"\n        ],\n        \"OS.Distribution\": [\n            \"active-directory\"\n        ],\n        \"OS.FullOsString\": [\n            \"active-directory\",\n            \"commvault\"\n        ],\n        \"OS.IsWindowsServer\": [\n            \"active-directory\"\n        ]\n    },\n    \"field_map\": {\n        \"Tags\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"Email\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"Domain\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"Groups\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"OS.Type\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"Adapters\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"Category\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"Hostname\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"LastSeen\": {\n            \"value_type\": \"date\",\n            \"has_keyword\": false\n        },\n        \"OS.Build\": {\n            \"value_type\": \"long\",\n            \"has_keyword\": false\n        },\n        \"OS.Major\": {\n            \"value_type\": \"long\",\n            \"has_keyword\": false\n        },\n        \"OS.Minor\": {\n            \"value_type\": \"long\",\n            \"has_keyword\": false\n        },\n        \"FetchTime\": {\n            \"value_type\": \"date\",\n            \"has_keyword\": false\n        },\n        \"FirstSeen\": {\n            \"value_type\": \"date\",\n            \"has_keyword\": false\n        },\n        \"Specifics\": {\n            \"value_type\": \"object\",\n            \"has_keyword\": false\n        },\n        \"OS.Bitness\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"IpAddresses\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"OS.CodeName\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"MacAddresses\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"FirstFetchTime\": {\n            \"value_type\": \"date\",\n            \"has_keyword\": false\n        },\n        \"LastUpdateTime\": {\n            \"value_type\": \"date\",\n            \"has_keyword\": false\n        },\n        \"OS.InstallDate\": {\n            \"value_type\": \"date\",\n            \"has_keyword\": false\n        },\n        \"OS.ServicePack\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"OS.Distribution\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"OS.FullOsString\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"OS.KernelVersion\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"OS.IsWindowsServer\": {\n            \"value_type\": \"boolean\",\n            \"has_keyword\": false\n        },\n        \"OpenPorts.Protocol\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"OpenPorts.PortNumber\": {\n            \"value_type\": \"long\",\n            \"has_keyword\": false\n        },\n        \"NetworkInterfaces.MTU\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"OpenPorts.ServiceName\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"Vulnerabilities.CveId\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"Vulnerabilities.Title\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"LoggedInUsers.Username\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"NetworkInterfaces.Port\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"OctoVulnerabilities.Id\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"Vulnerabilities.VulnId\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"VulnerableSoftware.Cvss\": {\n            \"value_type\": \"float\",\n            \"has_keyword\": false\n        },\n        \"OctoVulnerabilitiesCount\": {\n            \"value_type\": \"long\",\n            \"has_keyword\": false\n        },\n        \"VulnerableSoftware.CveId\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"InstalledSoftware.License\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"LoggedInUsers.Departments\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"NetworkInterfaces.Gateway\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"NetworkInterfaces.Subnets\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"InstalledSoftware.CveCount\": {\n            \"value_type\": \"long\",\n            \"has_keyword\": false\n        },\n        \"NetworkInterfaces.PortType\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"OctoVulnerabilitiesCveList\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"NetworkInterfaces.DhcpServer\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"NetworkInterfaces.DhcpStatus\": {\n            \"value_type\": \"boolean\",\n            \"has_keyword\": false\n        },\n        \"NetworkInterfaces.Vlans.Name\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"NetworkInterfaces.Vlans.TagId\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"VulnerableSoftware.CvssString\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"VulnerableSoftware.References\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"InstalledSoftware.SoftwareName\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"InstalledSoftware.SoftwarePath\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"NetworkInterfaces.Manufacturer\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"OctoVulnerabilities.Cvss2Score\": {\n            \"value_type\": \"float\",\n            \"has_keyword\": false\n        },\n        \"OctoVulnerabilities.Cvss3Score\": {\n            \"value_type\": \"float\",\n            \"has_keyword\": false\n        },\n        \"VulnerableSoftware.CveSeverity\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"VulnerableSoftware.CveSynopsis\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"VulnerableSoftware.CvssVersion\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"InstalledSoftware.InstalledDate\": {\n            \"value_type\": \"date\",\n            \"has_keyword\": false\n        },\n        \"NetworkInterfaces.InterfaceName\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"OctoVulnerabilities.Description\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"VulnerableSoftware.SoftwareName\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"InstalledSoftware.SoftwareVendor\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"NetworkInterfaces.InterfaceSpeed\": {\n            \"value_type\": \"float\",\n            \"has_keyword\": false\n        },\n        \"InstalledSoftware.InstalledFormat\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"InstalledSoftware.SoftwareVersion\": {\n            \"value_type\": \"float\",\n            \"has_keyword\": true\n        },\n        \"OctoVulnerabilities.Cvss2Severity\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"OctoVulnerabilities.Cvss3Severity\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"VulnerableSoftware.CveDescription\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"VulnerableSoftware.SoftwareVendor\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"VulnerableSoftware.SoftwareVersion\": {\n            \"value_type\": \"float\",\n            \"has_keyword\": true\n        },\n        \"InstalledSoftware.SoftwarePublisher\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"NetworkInterfaces.Vlans.AdminStatus\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"InstalledSoftware.SoftwareDescription\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"InstalledSoftware.SoftwareArchitecture\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"InstalledSoftware.SoftwareNameAndVersion\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"NetworkInterfaces.Vlans.OperationalStatus\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        }\n    },\n    \"user_field_map\": {\n        \"Email\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"Groups\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": false\n        },\n        \"Adapter\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"LastName\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"Location\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": false\n        },\n        \"Username\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"FirstName\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"AdminStatus\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": false\n        },\n        \"CreatedTime\": {\n            \"value_type\": \"date\",\n            \"has_keyword\": false\n        },\n        \"DisplayName\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"LastLogOnTime\": {\n            \"value_type\": \"date\",\n            \"has_keyword\": false\n        },\n        \"LastLogOffTime\": {\n            \"value_type\": \"date\",\n            \"has_keyword\": false\n        }\n    },\n    \"application_field_map\": {\n        \"Name\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"Count\": {\n            \"value_type\": \"long\",\n            \"has_keyword\": false\n        },\n        \"Groups\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"Version\": {\n            \"value_type\": \"version\",\n            \"has_keyword\": false\n        },\n        \"Publisher\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"Description\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"Architecture\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"NameAndVersion\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"Vulnerabilities\": {\n            \"value_type\": \"object\",\n            \"has_keyword\": false\n        },\n        \"VulnerabilityCount\": {\n            \"type\": \"long\",\n            \"has_keyword\": false\n        },\n        \"VulnerabilityMaxScore\": {\n            \"type\": \"float\",\n            \"has_keyword\": false\n        },\n        \"VulnerabilityMaxSeverity\": {\n            \"type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"VulnerabilityPrimaryScore\": {\n            \"type\": \"float\",\n            \"has_keyword\": false\n        },\n        \"VulnerabilityMaxCvss2Score\": {\n            \"type\": \"float\",\n            \"has_keyword\": false\n        },\n        \"VulnerabilityMaxCvss3Score\": {\n            \"type\": \"float\",\n            \"has_keyword\": false\n        },\n        \"VulnerabilityMaxCvss4Score\": {\n            \"type\": \"float\",\n            \"has_keyword\": false\n        },\n        \"VulnerabilityPrimarySeverity\": {\n            \"type\": \"float\",\n            \"has_keyword\": false\n        }\n    },\n    \"vulnerability_field_map\": {\n        \"Id\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"Adapters\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"MaxScore\": {\n            \"value_type\": \"float\",\n            \"has_keyword\": false\n        },\n        \"Specifics\": {\n            \"value_type\": \"object\",\n            \"has_keyword\": false\n        },\n        \"MaxSeverity\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"PrimaryScore\": {\n            \"value_type\": \"float\",\n            \"has_keyword\": false\n        },\n        \"MaxCvss2Score\": {\n            \"value_type\": \"float\",\n            \"has_keyword\": false\n        },\n        \"MaxCvss3Score\": {\n            \"value_type\": \"float\",\n            \"has_keyword\": false\n        },\n        \"MaxCvss4Score\": {\n            \"value_type\": \"float\",\n            \"has_keyword\": false\n        },\n        \"PrimarySeverity\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": false\n        },\n        \"ApplicationCount\": {\n            \"value_type\": \"long\",\n            \"has_keyword\": false\n        }\n    },\n    \"certificate_field_map\": {\n        \"Name\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"Files\": {\n            \"value_type\": \"object\",\n            \"has_keyword\": false\n        },\n        \"Adapters\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"IssuerCN\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": false\n        },\n        \"Specifics\": {\n            \"value_type\": \"object\",\n            \"has_keyword\": false\n        },\n        \"SubjectCN\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": false\n        },\n        \"ExpiryDate\": {\n            \"value_type\": \"date\",\n            \"has_keyword\": false\n        },\n        \"PrimaryKey\": {\n            \"value_type\": \"keyword\",\n            \"has_keyword\": true\n        },\n        \"CreatedDate\": {\n            \"value_type\": \"date\",\n            \"has_keyword\": false\n        },\n        \"ExpiryStatus\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"CertificateType\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": false\n        },\n        \"SignatureAlgorithm\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": false\n        },\n        \"Files.CertificateFile\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": false\n        },\n        \"Files.CertificateRequestFile\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": false\n        }\n    },\n    \"service_field_map\": {\n        \"Name\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"Region\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"Adapters\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"Specifics\": {\n            \"value_type\": \"object\",\n            \"has_keyword\": false\n        },\n        \"PrimaryKey\": {\n            \"value_type\": \"keyword\",\n            \"has_keyword\": true\n        },\n        \"CreatedDate\": {\n            \"value_type\": \"date\",\n            \"has_keyword\": false\n        },\n        \"ServiceType\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"ParentRegion\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"ResourceType\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": true\n        },\n        \"ServiceVersion\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": false\n        },\n        \"DeploymentStatus\": {\n            \"value_type\": \"text\",\n            \"has_keyword\": false\n        }\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Queries",
+			"item": [
+				{
+					"name": "Fetch Queries",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{OCTOXLABS_URL}}/queries/queries?size=10&page=2",
+							"host": [
+								"{{OCTOXLABS_URL}}"
+							],
+							"path": [
+								"queries",
+								"queries"
+							],
+							"query": [
+								{
+									"key": "size",
+									"value": "10"
+								},
+								{
+									"key": "page",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Fetch Queries",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{OCTOXLABS_URL}}/queries/queries",
+									"host": [
+										"{{OCTOXLABS_URL}}"
+									],
+									"path": [
+										"queries",
+										"queries"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 19 Dec 2023 11:47:25 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.12"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "djdt-store-id",
+									"value": "0156156500f94c5da021af96ad2710af"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "TimerPanel_utime;dur=269.29999999993015;desc=\"User CPU time\", TimerPanel_stime;dur=8.539999998902204;desc=\"System CPU time\", TimerPanel_total;dur=277.83999999883235;desc=\"Total CPU time\", TimerPanel_total_time;dur=286.96155548095703;desc=\"Elapsed time\", SQLPanel_sql_time;dur=9.228229522705078;desc=\"SQL 4 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "7801"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"count\": 31,\n    \"next\": \"http://localhost:8000/queries/queries?page=3&size=10\",\n    \"previous\": \"http://localhost:8000/queries/queries?size=10\",\n    \"results\": [\n        {\n            \"id\": \"octoxlabs-initial-0021\",\n            \"name\": \"Siem - Server Base Installed\",\n            \"text\": \"Query is octoxlabs-initial-0017 AND Groups = siem\",\n            \"tags\": [],\n            \"tag_names\": \"\",\n            \"tag\": [],\n            \"count\": 0,\n            \"is_public\": true,\n            \"tagging_enabled\": true,\n            \"created_at\": \"2025-10-06T16:32:45.705799+03:00\",\n            \"updated_at\": null,\n            \"user_full_name\": \" \",\n            \"temporary\": false,\n            \"type\": 1\n        },\n        {\n            \"id\": \"octoxlabs-initial-0020\",\n            \"name\": \"AD - Windows Server Base NOT Join\",\n            \"text\": \"Query is octoxlabs-initial-0017 AND NOT Groups = ad AND OS.Type = Windows\",\n            \"tags\": [],\n            \"tag_names\": \"\",\n            \"tag\": [],\n            \"count\": 0,\n            \"is_public\": true,\n            \"tagging_enabled\": true,\n            \"created_at\": \"2025-10-06T16:32:45.705783+03:00\",\n            \"updated_at\": null,\n            \"user_full_name\": \" \",\n            \"temporary\": false,\n            \"type\": 1\n        },\n        {\n            \"id\": \"octoxlabs-initial-0019\",\n            \"name\": \"AD - Windows Server Base Join\",\n            \"text\": \"Query is octoxlabs-initial-0017 AND Groups = ad AND OS.Type = Windows\",\n            \"tags\": [],\n            \"tag_names\": \"\",\n            \"tag\": [],\n            \"count\": 0,\n            \"is_public\": true,\n            \"tagging_enabled\": true,\n            \"created_at\": \"2025-10-06T16:32:45.705758+03:00\",\n            \"updated_at\": null,\n            \"user_full_name\": \" \",\n            \"temporary\": false,\n            \"type\": 1\n        },\n        {\n            \"id\": \"octoxlabs-initial-0018\",\n            \"name\": \"Last older 15 days server\",\n            \"text\": \"Category = Server AND NOT LastSeen last now-15d/d\",\n            \"tags\": [],\n            \"tag_names\": \"\",\n            \"tag\": [],\n            \"count\": 0,\n            \"is_public\": true,\n            \"tagging_enabled\": true,\n            \"created_at\": \"2025-10-06T16:32:45.705742+03:00\",\n            \"updated_at\": null,\n            \"user_full_name\": \" \",\n            \"temporary\": false,\n            \"type\": 1\n        },\n        {\n            \"id\": \"octoxlabs-initial-0017\",\n            \"name\": \"Last 15 days server\",\n            \"text\": \"Category = Server AND LastSeen last now-15d/d\",\n            \"tags\": [],\n            \"tag_names\": \"\",\n            \"tag\": [],\n            \"count\": 0,\n            \"is_public\": true,\n            \"tagging_enabled\": true,\n            \"created_at\": \"2025-10-06T16:32:45.705725+03:00\",\n            \"updated_at\": null,\n            \"user_full_name\": \" \",\n            \"temporary\": false,\n            \"type\": 1\n        },\n        {\n            \"id\": \"octoxlabs-initial-0016\",\n            \"name\": \"EPP - Workstation Base NOT Installed\",\n            \"text\": \"Query is octoxlabs-initial-0001 AND NOT Groups = epp\",\n            \"tags\": [],\n            \"tag_names\": \"\",\n            \"tag\": [],\n            \"count\": 0,\n            \"is_public\": true,\n            \"tagging_enabled\": true,\n            \"created_at\": \"2025-10-06T16:32:45.705709+03:00\",\n            \"updated_at\": null,\n            \"user_full_name\": \" \",\n            \"temporary\": false,\n            \"type\": 1\n        },\n        {\n            \"id\": \"octoxlabs-initial-0015\",\n            \"name\": \"EPP - Workstation Base Installed\",\n            \"text\": \"Query is octoxlabs-initial-0001 AND Groups = epp\",\n            \"tags\": [],\n            \"tag_names\": \"\",\n            \"tag\": [],\n            \"count\": 0,\n            \"is_public\": true,\n            \"tagging_enabled\": true,\n            \"created_at\": \"2025-10-06T16:32:45.705693+03:00\",\n            \"updated_at\": null,\n            \"user_full_name\": \" \",\n            \"temporary\": false,\n            \"type\": 1\n        },\n        {\n            \"id\": \"octoxlabs-initial-0014\",\n            \"name\": \"Antivirus - Workstation Base NOT Installed\",\n            \"text\": \"Query is octoxlabs-initial-0001 AND NOT Groups = antivirus\",\n            \"tags\": [],\n            \"tag_names\": \"\",\n            \"tag\": [],\n            \"count\": 0,\n            \"is_public\": true,\n            \"tagging_enabled\": true,\n            \"created_at\": \"2025-10-06T16:32:45.705676+03:00\",\n            \"updated_at\": null,\n            \"user_full_name\": \" \",\n            \"temporary\": false,\n            \"type\": 1\n        },\n        {\n            \"id\": \"octoxlabs-initial-0013\",\n            \"name\": \"Antivirus - Workstation Base Installed\",\n            \"text\": \"Query is octoxlabs-initial-0001 AND Groups = antivirus\",\n            \"tags\": [],\n            \"tag_names\": \"\",\n            \"tag\": [],\n            \"count\": 0,\n            \"is_public\": true,\n            \"tagging_enabled\": true,\n            \"created_at\": \"2025-10-06T16:32:45.705660+03:00\",\n            \"updated_at\": null,\n            \"user_full_name\": \" \",\n            \"temporary\": false,\n            \"type\": 1\n        },\n        {\n            \"id\": \"octoxlabs-initial-0012\",\n            \"name\": \"DLP - Workstation Base NOT Installed\",\n            \"text\": \"Query is octoxlabs-initial-0001 AND NOT Groups = dlp\",\n            \"tags\": [],\n            \"tag_names\": \"\",\n            \"tag\": [],\n            \"count\": 0,\n            \"is_public\": true,\n            \"tagging_enabled\": true,\n            \"created_at\": \"2025-10-06T16:32:45.705644+03:00\",\n            \"updated_at\": null,\n            \"user_full_name\": \" \",\n            \"temporary\": false,\n            \"type\": 1\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Queries",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Octoxlabs1\",\n    \"text\": \"\",\n    \"is_public\": true,\n    \"tags\": []\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{OCTOXLABS_URL}}/queries/queries",
+							"host": [
+								"{{OCTOXLABS_URL}}"
+							],
+							"path": [
+								"queries",
+								"queries"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Queries - Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Octoxlabs\",\n    \"text\": \"\",\n    \"is_public\": true,\n    \"tag\": [\n        1,\n        2\n    ],\n    \"type\": 2\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{OCTOXLABS_URL}}/queries/queries",
+									"host": [
+										"{{OCTOXLABS_URL}}"
+									],
+									"path": [
+										"queries",
+										"queries"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 19 Dec 2023 12:00:05 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.12"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "djdt-store-id",
+									"value": "a3c47fba0d3c4f0d8e43deda6461113f"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "TimerPanel_utime;dur=322.9609999980312;desc=\"User CPU time\", TimerPanel_stime;dur=34.824999998818384;desc=\"System CPU time\", TimerPanel_total;dur=357.78599999684957;desc=\"Total CPU time\", TimerPanel_total_time;dur=340.0914669036865;desc=\"Elapsed time\", SQLPanel_sql_time;dur=23.35333824157715;desc=\"SQL 11 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "234"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"2bd0deb3-597e\",\n    \"name\": \"Octoxlabs1\",\n    \"text\": \"\",\n    \"tags\": [],\n    \"tag\": [],\n    \"count\": 3,\n    \"is_public\": true,\n    \"tagging_enabled\": true,\n    \"created_at\": \"2025-10-08T10:02:55.363529+03:00\",\n    \"updated_at\": null,\n    \"user_id\": 1,\n    \"temporary\": false,\n    \"type\": 1\n}"
+						},
+						{
+							"name": "Create Queries - Bad Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{OCTOXLABS_URL}}/queries/queries",
+									"host": [
+										"{{OCTOXLABS_URL}}"
+									],
+									"path": [
+										"queries",
+										"queries"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 19 Dec 2023 12:01:16 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.12"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "djdt-store-id",
+									"value": "706a1d6595ed40689fc1f0b929c89764"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "TimerPanel_utime;dur=49.702000000252156;desc=\"User CPU time\", TimerPanel_stime;dur=0.0;desc=\"System CPU time\", TimerPanel_total;dur=49.702000000252156;desc=\"Total CPU time\", TimerPanel_total_time;dur=43.235063552856445;desc=\"Elapsed time\", SQLPanel_sql_time;dur=2.020120620727539;desc=\"SQL 1 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "76"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": [\n        \"This field may not be blank.\"\n    ],\n    \"text\": [\n        \"This field is required.\"\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Queries",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Octoxlabs2\",\n    \"text\": \"\",\n    \"tags\": [\n        1\n    ],\n    \"is_public\": true,\n    \"tagging_enabled\": true,\n    \"temporary\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{OCTOXLABS_URL}}/queries/queries/{{ID}}",
+							"host": [
+								"{{OCTOXLABS_URL}}"
+							],
+							"path": [
+								"queries",
+								"queries",
+								"{{ID}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Queries -Success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Octoxlabs2\",\n    \"text\": \"\",\n    \"tags\": [\n        1\n    ],\n    \"is_public\": true,\n    \"tagging_enabled\": true,\n    \"temporary\": false\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{OCTOXLABS_URL}}/queries/queries/2237895e-ec10",
+									"host": [
+										"{{OCTOXLABS_URL}}"
+									],
+									"path": [
+										"queries",
+										"queries",
+										"2237895e-ec10"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 19 Dec 2023 12:12:42 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.12"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "djdt-store-id",
+									"value": "71679a7eab044c949f7d131b342a46c0"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "TimerPanel_utime;dur=361.41199999838136;desc=\"User CPU time\", TimerPanel_stime;dur=0.0;desc=\"System CPU time\", TimerPanel_total;dur=361.41199999838136;desc=\"Total CPU time\", TimerPanel_total_time;dur=388.3988857269287;desc=\"Elapsed time\", SQLPanel_sql_time;dur=16.743183135986328;desc=\"SQL 9 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "287"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"2bd0deb3-597e\",\n    \"name\": \"Octoxlabs2\",\n    \"text\": \"\",\n    \"tags\": [\n        \"1\"\n    ],\n    \"tag_names\": \"\",\n    \"tag\": [],\n    \"count\": 3,\n    \"is_public\": true,\n    \"tagging_enabled\": true,\n    \"created_at\": \"2025-10-08T10:02:55.363529+03:00\",\n    \"updated_at\": \"2025-10-08T10:05:48.841069+03:00\",\n    \"user_id\": 1,\n    \"user_full_name\": \"Admin Octoxlabs\",\n    \"temporary\": false,\n    \"type\": 1\n}"
+						},
+						{
+							"name": "Update Queries - Bad Request",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"\",\n    \"tags\": [\n        1\n    ],\n    \"is_public\": true,\n    \"tagging_enabled\": true,\n    \"temporary\": false\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{OCTOXLABS_URL}}/queries/queries/2237895e-ec10",
+									"host": [
+										"{{OCTOXLABS_URL}}"
+									],
+									"path": [
+										"queries",
+										"queries",
+										"2237895e-ec10"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 19 Dec 2023 12:14:41 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.12"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "djdt-store-id",
+									"value": "29805d71f89a40b3977ad905dc01e06a"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "TimerPanel_utime;dur=17.07399999941117;desc=\"User CPU time\", TimerPanel_stime;dur=22.947000001295237;desc=\"System CPU time\", TimerPanel_total;dur=40.02100000070641;desc=\"Total CPU time\", TimerPanel_total_time;dur=47.127485275268555;desc=\"Elapsed time\", SQLPanel_sql_time;dur=7.077217102050781;desc=\"SQL 3 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "76"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": [\n        \"This field may not be blank.\"\n    ],\n    \"text\": [\n        \"This field is required.\"\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Queries",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{OCTOXLABS_URL}}/queries/queries/{{ID}}",
+							"host": [
+								"{{OCTOXLABS_URL}}"
+							],
+							"path": [
+								"queries",
+								"queries",
+								"{{ID}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Queries",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{OCTOXLABS_URL}}/queries/queries/{{ID}}",
+									"host": [
+										"{{OCTOXLABS_URL}}"
+									],
+									"path": [
+										"queries",
+										"queries",
+										"{{ID}}"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 19 Dec 2023 12:04:03 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.12"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "djdt-store-id",
+									"value": "894cc1813d6d4f23b1ee94ec40f919af"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "TimerPanel_utime;dur=256.9259999982023;desc=\"User CPU time\", TimerPanel_stime;dur=80.93399999779649;desc=\"System CPU time\", TimerPanel_total;dur=337.8599999959988;desc=\"Total CPU time\", TimerPanel_total_time;dur=319.1080093383789;desc=\"Elapsed time\", SQLPanel_sql_time;dur=18.030643463134766;desc=\"SQL 5 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Devices Search",
+			"item": [
+				{
+					"name": "Devices Search",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"query\": \"\",\n    \"page\": 1,\n    \"size\": 50,\n    \"index_id\": null,\n    \"fields\": [\n        \"Hostname\",\n        \"Category\",\n        \"Domain\",\n        \"OS.Type\",\n        \"Adapters\",\n        \"LastSeen\",\n        \"FirstFetchTime\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{OCTOXLABS_URL}}/devices/devices",
+							"host": [
+								"{{OCTOXLABS_URL}}"
+							],
+							"path": [
+								"devices",
+								"devices"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Devices Search - Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"query\": \"vcenter\",\n    \"page\": 1,\n    \"size\": 1,\n    \"index_id\": null,\n    \"fields\": [\n        \"Hostname\",\n        \"Category\",\n        \"Domain\",\n        \"OS.Type\",\n        \"Adapters\",\n        \"LastSeen\",\n        \"FirstFetchTime\"\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{OCTOXLABS_URL}}/devices/devices",
+									"host": [
+										"{{OCTOXLABS_URL}}"
+									],
+									"path": [
+										"devices",
+										"devices"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 19 Dec 2023 13:52:02 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.12"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "djdt-store-id",
+									"value": "94e247c2a2b14d72a33151880a7b3863"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "TimerPanel_utime;dur=284.68100000100094;desc=\"User CPU time\", TimerPanel_stime;dur=40.24500000014086;desc=\"System CPU time\", TimerPanel_total;dur=324.9260000011418;desc=\"Total CPU time\", TimerPanel_total_time;dur=298.9916801452637;desc=\"Elapsed time\", SQLPanel_sql_time;dur=15.054464340209961;desc=\"SQL 3 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "241"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"count\": 3,\n    \"results\": [\n        {\n            \"Hostname\": \"hostname-0\",\n            \"Adapters\": [\n                \"microsoft-defender\",\n                \"carbon-black-cloud\"\n            ],\n            \"Category\": \"Phone\",\n            \"Domain\": null,\n            \"LastSeen\": \"2025-10-08T09:55:59.767909\",\n            \"FirstFetchTime\": \"2025-10-08T09:56:01.732445\",\n            \"OS\": {\n                \"Type\": \"Others\"\n            }\n        },\n        {\n            \"Hostname\": \"hostname-1\",\n            \"Adapters\": [\n                \"microsoft-defender\",\n                \"carbon-black-cloud\"\n            ],\n            \"Category\": \"Phone\",\n            \"Domain\": null,\n            \"LastSeen\": \"2025-10-09T09:55:59.767909\",\n            \"FirstFetchTime\": \"2025-10-08T09:56:02.400910\",\n            \"OS\": {\n                \"Type\": \"Others\"\n            }\n        },\n        {\n            \"Hostname\": \"hostname-2\",\n            \"Adapters\": [\n                \"microsoft-defender\",\n                \"carbon-black-cloud\"\n            ],\n            \"Category\": \"Server\",\n            \"Domain\": null,\n            \"LastSeen\": \"2025-10-10T09:55:59.767909\",\n            \"FirstFetchTime\": \"2025-10-08T09:56:02.574204\",\n            \"OS\": {\n                \"Type\": \"Others\"\n            }\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Connections",
+			"item": [
+				{
+					"name": "Fetch Connections",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{OCTOXLABS_URL}}/adapters/connections?size=1&page=2",
+							"host": [
+								"{{OCTOXLABS_URL}}"
+							],
+							"path": [
+								"adapters",
+								"connections"
+							],
+							"query": [
+								{
+									"key": "size",
+									"value": "1"
+								},
+								{
+									"key": "page",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Fetch Connections",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{OCTOXLABS_URL}}/adapters/connections?size=1&page=2",
+									"host": [
+										"{{OCTOXLABS_URL}}"
+									],
+									"path": [
+										"adapters",
+										"connections"
+									],
+									"query": [
+										{
+											"key": "size",
+											"value": "1"
+										},
+										{
+											"key": "page",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 15 Dec 2023 15:00:47 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.12"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS"
+								},
+								{
+									"key": "djdt-store-id",
+									"value": "77c3fafdf88742dd8d8b342cc0cdc6eb"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "TimerPanel_utime;dur=68.37999999993372;desc=\"User CPU time\", TimerPanel_stime;dur=4.278999999996813;desc=\"System CPU time\", TimerPanel_total;dur=72.65899999993053;desc=\"Total CPU time\", TimerPanel_total_time;dur=91.24922752380371;desc=\"Elapsed time\", SQLPanel_sql_time;dur=18.39303970336914;desc=\"SQL 5 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1986"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"count\": 3,\n    \"next\": \"http://localhost:8000/adapters/connections?page=3&size=1\",\n    \"previous\": \"http://localhost:8000/adapters/connections?size=1\",\n    \"results\": [\n        {\n            \"id\": 2,\n            \"adapter\": 4,\n            \"adapter_name\": \"Absolute\",\n            \"adapter_slug\": \"absolute\",\n            \"name\": \"Test\",\n            \"status\": false,\n            \"description\": \"test\",\n            \"enabled\": true,\n            \"created_at\": \"2025-10-08T09:22:58.464984+03:00\",\n            \"option_connections\": [\n                {\n                    \"name\": \"fetch_installed_softwares\",\n                    \"typed_value\": true,\n                    \"is_sensitive\": false,\n                    \"option_type\": \"bool\"\n                },\n                {\n                    \"name\": \"token_secret\",\n                    \"typed_value\": \"**********\",\n                    \"is_sensitive\": true,\n                    \"option_type\": \"char\"\n                },\n                {\n                    \"name\": \"token_id\",\n                    \"typed_value\": \"my_id\",\n                    \"is_sensitive\": false,\n                    \"option_type\": \"char\"\n                },\n                {\n                    \"name\": \"domain\",\n                    \"typed_value\": \"https://api.absolute.com\",\n                    \"is_sensitive\": false,\n                    \"option_type\": \"char\"\n                }\n            ],\n            \"connector\": 1,\n            \"connector_name\": \"Default\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "Empty Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{OCTOXLABS_URL}}/adapters/connections",
+									"host": [
+										"{{OCTOXLABS_URL}}"
+									],
+									"path": [
+										"adapters",
+										"connections"
+									]
+								}
+							},
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"count\": 0,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Connections",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"adapter\": 80,\n    \"name\": \"Octoxlabs\",\n    \"description\": \"write description\",\n    \"connector\": 1,\n    \"option_connections\": []\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{OCTOXLABS_URL}}/adapters/connections",
+							"host": [
+								"{{OCTOXLABS_URL}}"
+							],
+							"path": [
+								"adapters",
+								"connections"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Connections - Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"adapter\": 80,\n    \"name\": \"Octoxlabs\",\n    \"description\": \"This is a description\",\n    \"connector\": 1,\n    \"option_connections\": []\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{OCTOXLABS_URL}}/adapters/connections",
+									"host": [
+										"{{OCTOXLABS_URL}}"
+									],
+									"path": [
+										"adapters",
+										"connections"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 15 Dec 2023 14:39:42 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.12"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS"
+								},
+								{
+									"key": "djdt-store-id",
+									"value": "7bdd992b5ef5450581076ded1538edbe"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "TimerPanel_utime;dur=188.5620000000472;desc=\"User CPU time\", TimerPanel_stime;dur=36.56300000000101;desc=\"System CPU time\", TimerPanel_total;dur=225.1250000000482;desc=\"Total CPU time\", TimerPanel_total_time;dur=266.54696464538574;desc=\"Elapsed time\", SQLPanel_sql_time;dur=21.099090576171875;desc=\"SQL 10 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "574"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 4,\n    \"adapter\": 80,\n    \"adapter_name\": \"Commvault (Beta)\",\n    \"adapter_slug\": \"commvault\",\n    \"name\": \"Octoxlabs\",\n    \"status\": false,\n    \"description\": \"write description\",\n    \"enabled\": true,\n    \"created_at\": \"2025-10-08T09:28:10.199762+03:00\",\n    \"option_connections\": [\n        {\n            \"name\": \"is_secure\",\n            \"typed_value\": true,\n            \"is_sensitive\": false,\n            \"option_type\": \"bool\"\n        },\n        {\n            \"name\": \"is_command_center\",\n            \"typed_value\": false,\n            \"is_sensitive\": false,\n            \"option_type\": \"bool\"\n        },\n        {\n            \"name\": \"password\",\n            \"typed_value\": \"**********\",\n            \"is_sensitive\": true,\n            \"option_type\": \"char\"\n        },\n        {\n            \"name\": \"username\",\n            \"typed_value\": null,\n            \"is_sensitive\": false,\n            \"option_type\": \"char\"\n        },\n        {\n            \"name\": \"port\",\n            \"typed_value\": 443,\n            \"is_sensitive\": false,\n            \"option_type\": \"int\"\n        },\n        {\n            \"name\": \"ip\",\n            \"typed_value\": \"api.metallic.io\",\n            \"is_sensitive\": false,\n            \"option_type\": \"char\"\n        }\n    ],\n    \"connector\": 1,\n    \"connector_name\": \"Default\"\n}"
+						},
+						{
+							"name": "Create Connections - Bad Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"adapter\": 123,\n    \"name\": \"\",\n    \"description\": \"Write a description\",\n    \"connector\": 112,\n    \"option_connections\": []\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{OCTOXLABS_URL}}/adapters/connections",
+									"host": [
+										"{{OCTOXLABS_URL}}"
+									],
+									"path": [
+										"adapters",
+										"connections"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 15 Dec 2023 14:44:20 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.12"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, OPTIONS"
+								},
+								{
+									"key": "djdt-store-id",
+									"value": "b70286282e9e4de3b0f325ee75ac3aa5"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "TimerPanel_utime;dur=45.13999999994667;desc=\"User CPU time\", TimerPanel_stime;dur=8.415000000013606;desc=\"System CPU time\", TimerPanel_total;dur=53.55499999996027;desc=\"Total CPU time\", TimerPanel_total_time;dur=58.43043327331543;desc=\"Elapsed time\", SQLPanel_sql_time;dur=4.733085632324219;desc=\"SQL 3 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "159"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"adapter\": [\n        \"Invalid pk \\\"123\\\" - object does not exist.\"\n    ],\n    \"name\": [\n        \"This field may not be blank.\"\n    ],\n    \"connector\": [\n        \"Invalid pk \\\"112\\\" - object does not exist.\"\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Connections",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{OCTOXLABS_URL}}/adapters/connections/{{ID}}",
+							"host": [
+								"{{OCTOXLABS_URL}}"
+							],
+							"path": [
+								"adapters",
+								"connections",
+								"{{ID}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Connections - Success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{OCTOXLABS_URL}}/adapters/connections/16",
+									"host": [
+										"{{OCTOXLABS_URL}}"
+									],
+									"path": [
+										"adapters",
+										"connections",
+										"16"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 15 Dec 2023 14:47:50 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.12"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, DELETE, PUT, OPTIONS, PATCH"
+								},
+								{
+									"key": "djdt-store-id",
+									"value": "0a8c3bf31fe049efb7cd13b39b0c59c8"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "TimerPanel_utime;dur=149.52100000004975;desc=\"User CPU time\", TimerPanel_stime;dur=5.905999999981759;desc=\"System CPU time\", TimerPanel_total;dur=155.4270000000315;desc=\"Total CPU time\", TimerPanel_total_time;dur=187.04891204833984;desc=\"Elapsed time\", SQLPanel_sql_time;dur=24.718761444091797;desc=\"SQL 14 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "Get Access Token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"token\": \"{{TOKEN}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{OCTOXLABS_URL}}/api/token/token",
+							"host": [
+								"{{OCTOXLABS_URL}}"
+							],
+							"path": [
+								"api",
+								"token",
+								"token"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Access Token",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"token\": \"{{OCTOXLABS_TOKEN}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{OCTOXLABS_URL}}/api/token/token",
+									"host": [
+										"{{OCTOXLABS_URL}}"
+									],
+									"path": [
+										"api",
+										"token",
+										"token"
+									]
+								}
+							},
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\n    \"access\": \"TOKEN\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Access Token With Login Credentials",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"{{USERNAME}}\",\n    \"password\": \"{{PASSWORD}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{OCTOXLABS_URL}}/api/token",
+							"host": [
+								"{{OCTOXLABS_URL}}"
+							],
+							"path": [
+								"api",
+								"token"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"{{USERNAME}}\",\n    \"password\": \"{{PASSWORD}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{OCTOXLABS_URL}}/api/token/token",
+									"host": [
+										"{{OCTOXLABS_URL}}"
+									],
+									"path": [
+										"api",
+										"token",
+										"token"
+									]
+								}
+							},
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\n    \"refresh\": TOKEN,\n    \"access\": \"TOKEN\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Product Information",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{OCTOXLABS_URL}}/configurations/company",
+					"host": [
+						"{{OCTOXLABS_URL}}"
+					],
+					"path": [
+						"configurations",
+						"company"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Product Information",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{OCTOXLABS_URL}}/configurations/company",
+							"host": [
+								"{{OCTOXLABS_URL}}"
+							],
+							"path": [
+								"configurations",
+								"company"
+							]
+						}
+					},
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [
+						{
+							"expires": "Invalid Date",
+							"domain": "",
+							"path": ""
+						}
+					],
+					"body": "{\n    \"logo\": \"{{OCTOXLABS_URL}}/media/configurations/company/logo.png\",\n    \"relative_logo\": \"/media/configurations/company/logo.png\",\n    \"is_active\": false,\n    \"reason_of_deactivate\": 1002\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "id",
+			"value": "1"
+		},
+		{
+			"key": "base_url",
+			"value": "https://postman-rest-api-learner.glitch.me/"
+		}
+	]
+}
