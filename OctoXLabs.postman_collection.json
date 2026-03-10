@@ -1,18 +1,18 @@
 {
   "info": {
-    "_postman_id": "4e35cb43-f4b8-41ca-97b8-697220e555fa",
+    "_postman_id": "bdf4b4d4-b661-4019-86f0-4651503590c3",
     "name": "OctoXLabs",
     "description": "- OctoXLabs Api Doc\n    \n- Auth -> Tüm istekler `Bearer Token` ile korunmaktadır. Token almak için önce `Auth` isteğini çalıştırıp, dönen değeri ortam değişkenlerindeki `token` alanına kaydetmelisiniz.\n    \n- baseUrl -> Sunucu adresi, ex: [https://devocto01.octoxlabs.azr/api](https://devocto01.octoxlabs.azr/api)\n    \n- loginUsername -> OctoXLabs'e giriş yapabilen kullanıcının kullanıcı adı.\n    \n- loginPassword -> OctoXLabs'e giriş yapabilen kullanıcının parolası.\n    \n- apiToken -> OctoXLabs platforum'undan alınan api token.\n    \n- authToken -> Auth olduktan sonra dönen access keyinin valuesi.",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "_exporter_id": "45236524",
-    "_collection_link": "https://go.postman.co/collection/45236524-4e35cb43-f4b8-41ca-97b8-697220e555fa?source=collection_link"
+    "_collection_link": "https://go.postman.co/collection/45236524-bdf4b4d4-b661-4019-86f0-4651503590c3?source=collection_link"
   },
   "item": [
     {
       "name": "Companies",
       "item": [
         {
-          "name": "Fetch Companies",
+          "name": "List Companies",
           "request": {
             "auth": {
               "type": "noauth"
@@ -914,7 +914,7 @@
       "name": "Domains",
       "item": [
         {
-          "name": "Fetch Domains",
+          "name": "List Domains",
           "request": {
             "auth": {
               "type": "noauth"
@@ -1567,7 +1567,7 @@
       "name": "Users",
       "item": [
         {
-          "name": "Fetch Users",
+          "name": "List Users",
           "request": {
             "auth": {
               "type": "noauth"
@@ -2330,7 +2330,7 @@
       "name": "Groups",
       "item": [
         {
-          "name": "Groups",
+          "name": "List Groups",
           "request": {
             "auth": {
               "type": "noauth"
@@ -2446,7 +2446,7 @@
           ]
         },
         {
-          "name": "Permissions",
+          "name": "List Permissions",
           "request": {
             "method": "GET",
             "header": [
@@ -3258,10 +3258,10 @@
       ]
     },
     {
-      "name": "Discovery",
+      "name": "Discovery Settings",
       "item": [
         {
-          "name": "Fetch Discovery",
+          "name": "List Discovery Settings",
           "request": {
             "auth": {
               "type": "noauth"
@@ -3382,7 +3382,7 @@
       "name": "Queries",
       "item": [
         {
-          "name": "Saved Queries",
+          "name": "List Saved Queries",
           "request": {
             "auth": {
               "type": "noauth"
@@ -3418,6 +3418,12 @@
                 {
                   "key": "page",
                   "value": "2",
+                  "disabled": true
+                },
+                {
+                  "key": "type",
+                  "value": "1",
+                  "type": "text",
                   "disabled": true
                 }
               ]
@@ -4168,7 +4174,7 @@
       "name": "Connections",
       "item": [
         {
-          "name": "Fetch Connections",
+          "name": "List Connections",
           "request": {
             "auth": {
               "type": "noauth"
@@ -5140,7 +5146,7 @@
           ]
         },
         {
-          "name": "User Inventory",
+          "name": "Users Inventory",
           "item": [
             {
               "name": "All Users",
@@ -6155,7 +6161,7 @@
               ]
             },
             {
-              "name": "Spesific of Licenses",
+              "name": "Spesific of License",
               "request": {
                 "method": "POST",
                 "header": [
@@ -6446,7 +6452,7 @@
               ]
             },
             {
-              "name": "Spesific of Licenses",
+              "name": "Spesific of Certificate",
               "request": {
                 "method": "POST",
                 "header": [
@@ -6711,7 +6717,7 @@
               ]
             },
             {
-              "name": "Spesific of Services",
+              "name": "Spesific of Service",
               "request": {
                 "method": "POST",
                 "header": [
@@ -6837,7 +6843,7 @@
           "name": "Sourcecodes Inventory",
           "item": [
             {
-              "name": "All Services",
+              "name": "All Sourcecodes",
               "request": {
                 "method": "POST",
                 "header": [
@@ -6950,7 +6956,7 @@
               ]
             },
             {
-              "name": "Spesific of Services",
+              "name": "Spesific of Sourcecode",
               "request": {
                 "method": "POST",
                 "header": [
@@ -7073,10 +7079,10 @@
           ]
         },
         {
-          "name": "Ai Inventory",
+          "name": "Ai Services Inventory",
           "item": [
             {
-              "name": "All Ais",
+              "name": "All Ai Services",
               "request": {
                 "method": "POST",
                 "header": [
@@ -7189,7 +7195,7 @@
               ]
             },
             {
-              "name": "Spesific of Ai",
+              "name": "Spesific of Ai Service",
               "request": {
                 "method": "POST",
                 "header": [
@@ -7798,29 +7804,283 @@
               "body": "{\n    \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc3MzA5NzA0NCwiaWF0IjoxNzczMDEwNjQ0LCJqdGkiOiIzYmE4N2U5YmQ0NDY0NDNjOTgyOWE0NGZmYzA5MGE3ZSIsInVzZXJfaWQiOjEsImNvbXBhbnlfaWQiOjEsImNvbXBhbnlfaXNfYWN0aXZlIjp0cnVlLCJjb21wYW55X2lzX3Jvb3QiOnRydWUsIl9hbGxfYWRhcHRlcnMiOnRydWUsImlzX2FwaV91c2VyIjpmYWxzZX0.vW_RT170f59ABXioRRMrgX_UBr5SpNV5nLX_TfGFaWE\",\n    \"access\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMDY0NjQ0LCJpYXQiOjE3NzMwMTA2NDQsImp0aSI6ImIwNzdkODUyMWJkNjRiZmQ5MWRkZDAyMTIxNWEyMGQzIiwidXNlcl9pZCI6MSwiY29tcGFueV9pZCI6MSwiY29tcGFueV9pc19hY3RpdmUiOnRydWUsImNvbXBhbnlfaXNfcm9vdCI6dHJ1ZSwiX2FsbF9hZGFwdGVycyI6dHJ1ZSwiaXNfYXBpX3VzZXIiOmZhbHNlfQ.7Mj27nia26jLfsS-YeZ493k_uqDV_Ny4_FCOOXz-bVI\"\n}"
             }
           ]
+        },
+        {
+          "name": "Refresh Token",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"refresh\": \"$refreshToken\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/token/refresh",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "token",
+                "refresh"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "200",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"refresh\": \"$refreshToken\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/token/refresh",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "token",
+                    "refresh"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "nginx"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 09 Mar 2026 08:12:41 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "380"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept, Origin"
+                },
+                {
+                  "key": "Allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, must-revalidate"
+                },
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self'; font-src 'self'; object-src 'none'; frame-ancestors 'self';"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"access\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMDk3OTYxLCJpYXQiOjE3NzMwNDM5NjEsImp0aSI6IjVkM2EwYzk5MjQzMjRkOTc4YWJhNmNmOGZkNjc0ZDc4IiwidXNlcl9pZCI6MSwiY29tcGFueV9pZCI6MSwiY29tcGFueV9pc19hY3RpdmUiOnRydWUsImNvbXBhbnlfaXNfcm9vdCI6dHJ1ZSwiX2FsbF9hZGFwdGVycyI6dHJ1ZSwiaXNfYXBpX3VzZXIiOmZhbHNlfQ.rw-JdlUuJupjEQQelH2r1iiZeRdNsg7OIS74LpybDmU\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Verify Token",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"token\": \"$Token\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/token/verify",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "token",
+                "verify"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "200",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczMDk4MDc2LCJpYXQiOjE3NzMwNDQwNzYsImp0aSI6Ijk1ODcwZGZjYTM0YzQzMTliZDdlZmU2OWEwM2U0N2NmIiwidXNlcl9pZCI6MSwiY29tcGFueV9pZCI6MSwiY29tcGFueV9pc19hY3RpdmUiOnRydWUsImNvbXBhbnlfaXNfcm9vdCI6dHJ1ZSwiX2FsbF9hZGFwdGVycyI6dHJ1ZSwiaXNfYXBpX3VzZXIiOmZhbHNlfQ.n3q_hifdFXBj6vK8uXW67lSuHAkzJnC-IpSASU_9m2Q\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/token/verify",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "token",
+                    "verify"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "",
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "nginx"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 09 Mar 2026 08:14:53 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "2"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept, Origin"
+                },
+                {
+                  "key": "Allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, must-revalidate"
+                },
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self'; font-src 'self'; object-src 'none'; frame-ancestors 'self';"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{}"
+            }
+          ]
         }
       ]
     },
     {
       "name": "Product Information",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "{{baseUrl}}/configurations/company",
-          "host": [
-            "{{baseUrl}}"
-          ],
-          "path": [
-            "configurations",
-            "company"
-          ]
-        }
-      },
-      "response": [
+      "item": [
         {
-          "name": "200",
-          "originalRequest": {
+          "name": "Product Information",
+          "request": {
             "method": "GET",
             "header": [],
             "url": {
@@ -7834,61 +8094,80 @@
               ]
             }
           },
-          "status": "OK",
-          "code": 200,
-          "_postman_previewlanguage": "Text",
-          "header": [
+          "response": [
             {
-              "key": "Date",
-              "value": "Sun, 08 Mar 2026 22:56:00 GMT"
-            },
-            {
-              "key": "Server",
-              "value": "WSGIServer/0.2 CPython/3.13.12"
-            },
-            {
-              "key": "Content-Type",
-              "value": "application/json"
-            },
-            {
-              "key": "Vary",
-              "value": "Accept, Origin, Cookie"
-            },
-            {
-              "key": "Allow",
-              "value": "GET, OPTIONS"
-            },
-            {
-              "key": "djdt-store-id",
-              "value": "766352a217af4b538d7e1ef672c91809"
-            },
-            {
-              "key": "Server-Timing",
-              "value": "TimerPanel_utime;dur=10.683000000028642;desc=\"User CPU time\", TimerPanel_stime;dur=0.9439999999969473;desc=\"System CPU time\", TimerPanel_total;dur=11.627000000025589;desc=\"Total CPU time\", TimerPanel_total_time;dur=12.175559997558594;desc=\"Elapsed time\", SQLPanel_sql_time;dur=0.5145072937011719;desc=\"SQL 1 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
-            },
-            {
-              "key": "X-Frame-Options",
-              "value": "DENY"
-            },
-            {
-              "key": "Content-Length",
-              "value": "172"
-            },
-            {
-              "key": "X-Content-Type-Options",
-              "value": "nosniff"
-            },
-            {
-              "key": "Referrer-Policy",
-              "value": "same-origin"
-            },
-            {
-              "key": "Cross-Origin-Opener-Policy",
-              "value": "same-origin"
+              "name": "200",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/configurations/company",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "configurations",
+                    "company"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Sun, 08 Mar 2026 22:56:00 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.13.12"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept, Origin, Cookie"
+                },
+                {
+                  "key": "Allow",
+                  "value": "GET, OPTIONS"
+                },
+                {
+                  "key": "djdt-store-id",
+                  "value": "766352a217af4b538d7e1ef672c91809"
+                },
+                {
+                  "key": "Server-Timing",
+                  "value": "TimerPanel_utime;dur=10.683000000028642;desc=\"User CPU time\", TimerPanel_stime;dur=0.9439999999969473;desc=\"System CPU time\", TimerPanel_total;dur=11.627000000025589;desc=\"Total CPU time\", TimerPanel_total_time;dur=12.175559997558594;desc=\"Elapsed time\", SQLPanel_sql_time;dur=0.5145072937011719;desc=\"SQL 1 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "172"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"logo\": \"http://localhost:8000/media/configurations/company/logo.png\",\n    \"relative_logo\": \"/media/configurations/company/logo.png\",\n    \"is_active\": true,\n    \"reason_of_deactivate\": null\n}"
             }
-          ],
-          "cookie": [],
-          "body": "{\n    \"logo\": \"http://localhost:8000/media/configurations/company/logo.png\",\n    \"relative_logo\": \"/media/configurations/company/logo.png\",\n    \"is_active\": true,\n    \"reason_of_deactivate\": null\n}"
+          ]
         }
       ]
     }
