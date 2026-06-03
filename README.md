@@ -15,5 +15,5 @@ Clone or download this repository. Then import the file `Octox Labs.postman_coll
 
 ## Initialize environment
 **OCTOXLABS_URL** is your Octoxlabs Platform Url. You can use it in two different ways. (https://OCTOXLABS_URL/api or https://OCTOXLABS_URL:8443)
-**OCTOXLABS_TOKEN** is your API Token in My Profile page.
+**OCTOXLABS_TOKEN** is your API Token in My Profile page. 
 
